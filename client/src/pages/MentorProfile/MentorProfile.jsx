@@ -79,7 +79,6 @@ export default function MentorProfile() {
             roomId: uuid()
         }
         e.preventDefault()
-        setRooms(...rooms, newRoom)
         const req = await fetch(`http://localhost:4000/mentor/${mail}`, {
             method: 'POST',
             headers: {
@@ -87,11 +86,11 @@ export default function MentorProfile() {
             },
             body: JSON.stringify({
                 rooms: [
-                    ...rooms
+                    ...rooms, newRoom
                 ]
             })
         })
-        const result = await req.json()
+        setRooms([...rooms, newRoom])
     }
 
     return (
