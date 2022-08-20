@@ -64,13 +64,13 @@ app.post('/mentor/login', async (req, res) => {
     if (isPasswordValid) {
         const token = jwt.sign(
             {
-                name: Mentor.name,
-                email: Mentor.email,
+                name: mentor.name,
+                email: mentor.email,
             },
             'secret123'
         )
 
-        return res.json({ status: 'ok', user: token })
+        return res.json({ status: 'ok', name: mentor.name })
     } else {
         return res.json({ status: 'error', user: false })
     }
@@ -93,13 +93,13 @@ app.post('/mentee/login', async (req, res) => {
     if (isPasswordValid) {
         const token = jwt.sign(
             {
-                name: Mentee.name,
-                email: Mentee.email,
+                name: mentee.name,
+                email: mentee.email,
             },
             'secret123'
         )
 
-        return res.json({ status: 'ok', user: token })
+        return res.json({ status: 'ok', name: mentee.name })
     } else {
         return res.json({ status: 'error', user: false })
     }

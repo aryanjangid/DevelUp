@@ -36,6 +36,8 @@ export default function Login() {
 
         const data = await response.json()
         if (data.status === 'ok') {
+            localStorage.setItem('email', email)
+            localStorage.setItem('name', name)
             navigate('/home')
         }
     }
@@ -70,6 +72,7 @@ export default function Login() {
                 </form>
                 {selectedOption === "mentor" ?
                     <div onClick={RegisterUser} style={{ marginTop: '20px' }} ><Button name="Register as Mentor" ></Button></div> : <div onClick={RegisterUser}><Button name="Register as Mentee" to="/"></Button></div>}
+                <h3>Already a member? <span onClick={() => navigate('/login')} style={{ color: "#FFC23C", cursor: "pointer" }}>LogIn</span></h3>
             </div>
 
         </div >

@@ -15,6 +15,8 @@ const mentee = new mongoose.Schema(
         password: { type: String, required: true },
         skills: { type: Array },
         rooms: [Room],
+        bio: { type: String },
+        links:{ type: Array }
     },
     { collection: 'mentee-data' }
 )
