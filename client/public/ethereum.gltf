@@ -2815,7 +2815,7 @@
                     }
                 }
             ],
-            "name" : "Armature|mixamo.com|Layer0",
+            "name" : "anime",
             "samplers" : [
                 {
                     "input" : 43,
@@ -6990,7 +6990,7 @@
     "buffers" : [
         {
             "byteLength" : 2881812,
-            "uri" : "ethereum.bin"
+            "uri" : "ethereum1.bin"
         }
     ]
 }

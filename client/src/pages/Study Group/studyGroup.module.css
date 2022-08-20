@@ -1,0 +1,14 @@
+.outerMainDiv{
+    height: 200px;
+}
+.studyGroupDiv{
+    width: 90%;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    padding: 2rem;
+}
+.searchDiv{
+    display: flex;
+}

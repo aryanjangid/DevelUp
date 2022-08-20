@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import classes from './mentorProfile.module.css'
 import { useParams } from "react-router";
 import { v4 as uuid } from "uuid";
-
+import { Blender } from '../../components/Models/Blender';
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 export default function MentorProfile() {
+    const [action1, setAction1] = useState("aryan");
 
     const [facebook, setFacebook] = useState("");
     const [instagram, setInstagram] = useState("");
@@ -109,13 +112,24 @@ export default function MentorProfile() {
         <div className={classes.MainDiv}>
             <div className={classes.profileMaindiv}>
                 <div className={classes.profileLeftdiv}>
-                    <h1>MY Profile</h1>
+                    <Canvas alpha={false}>
+                        <ambientLight intensity={0.5} />
+                        {/* <pointLight intensity={2} position={[-1, 1, 3]} color="#2C3333" />
+                        <pointLight intensity={2} position={[1, 1, 3]} color="#395B64" />
+                        <pointLight intensity={2} position={[0, 3, -10]} color="white" /> */}
+                        <pointLight intensity={10} position={[0, 0, 0]} color="#B20600" />
+                        <OrbitControls enableDamping={true} enableZoom={false} />
+                        <Suspense fallback={null}>
+                            <Blender action={action1} /> 
+                        </Suspense>
+                    </Canvas>
                 </div>
                 <div className={classes.profileRightdiv}>
                     <div className={classes.basicDetails}>
                         <h1 style={{ color: '#6225E6', fontSize: '1.4rem', marginBottom: '1rem' }}>Hey!</h1>
                         <h1>{name}</h1>
-                        <h3><span>Email: </span>a{email}</h3>
+                        <h3><span>Email: </span>{email}</h3>
+                        <h3><span>Favourite Skills: </span>{email}</h3>
                         <div>
                             <div style={{ marginTop: "2rem", marginBottom: "2rem" }} className={classes.wrapper}>
                                 {facebook !== '' ? <a href={facebook} target="_blank" rel="noreferrer" style={{ color: "#4267b2" }}>
