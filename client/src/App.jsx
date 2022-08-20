@@ -16,14 +16,14 @@ export default function App() {
 
   return (
     <div>
-      
+
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/search" element={<Search />} />
         <Route exact path="/profile/:mail" element={<MentorProfile />} />
-        <Route exact path="/room" element={<Room />} />
+        <Route exact path="/room/:mail" element={<Room />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

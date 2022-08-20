@@ -74,12 +74,13 @@ export default function MentorProfile() {
         if (newRoomName === "") {
             return
         }
+        const uid = uuid()
         const newRoom = {
             name: newRoomName,
-            roomId: uuid()
+            roomId: uid
         }
         e.preventDefault()
-        const req = await fetch(`http://localhost:4000/mentor/${mail}`, {
+        await fetch(`http://localhost:4000/mentor/${mail}`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
@@ -88,6 +89,17 @@ export default function MentorProfile() {
                 rooms: [
                     ...rooms, newRoom
                 ]
+            })
+        })
+        await fetch(`http://localhost:4000/room/`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json',
+            },
+            body: JSON.stringify({
+                email: mail,
+                roomId: uid,
+                name: newRoomName
             })
         })
         setRooms([...rooms, newRoom])
