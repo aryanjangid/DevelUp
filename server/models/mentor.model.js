@@ -15,7 +15,11 @@ const Mentor = new mongoose.Schema(
         skills: { type: Array },
         rooms: [Room],
         bio: { type: String },
-        links: { type: Array }
+        facebook: { type: String },
+        twitter: { type: String },
+        linkedin: { type: String },
+        instagram: { type: String },
+        github: { type: String },
     },
     { collection: 'mentor-data' }
 )
