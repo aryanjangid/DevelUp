@@ -118,7 +118,7 @@ export default function MentorProfile() {
                         <pointLight intensity={2} position={[1, 1, 3]} color="#395B64" />
                         <pointLight intensity={2} position={[0, 3, -10]} color="white" /> */}
                         <pointLight intensity={10} position={[0, 0, 0]} color="#B20600" />
-                        <OrbitControls enableDamping={true} enableZoom={false} />
+                        <OrbitControls enableDamping={true} enableZoom={true} />
                         <Suspense fallback={null}>
                             <Blender action={action1} /> 
                         </Suspense>
