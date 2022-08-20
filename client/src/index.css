@@ -17,8 +17,14 @@ code {
 }
 h1{
   font-family: 'DM Sans', sans-serif;
-  margin: 0;
+  font-weight: 700;
+  margin:0;
 }
+h3{
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+
 .inputBox{
   background-color: white;
   border:0;
