@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classes from './search.module.css'
 import background from '../../Assets/searchBackground.png'
 import Button from '../../components/Button'
@@ -11,8 +11,12 @@ import profile6 from '../../Assets/profile6.png'
 import profile7 from '../../Assets/profile7.png'
 import profile8 from '../../Assets/profile8.png'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export default function Search() {
+    const [query, setQuery] = useState('')
+    const [mentorResponse, setMentorResponse] = useState([])
+    const [menteeResponse, setMenteeResponse] = useState([])
 
     const profilePhotos = [profile1, profile2, profile3, profile4, profile5, profile6, profile7, profile8];
 
@@ -20,6 +24,57 @@ export default function Search() {
         return Math.floor(Math.random() * 7);
     }
 
+    useEffect(() => {
+        fetch(`http://localhost:4000/mentors`, {
+            headers: { 'Content-Type': 'application/json' }
+        }).then(data => data.json()).then((data) => setMentorResponse([...data['mentors']]))
+        fetch(`http://localhost:4000/mentees`, {
+            headers: { 'Content-Type': 'application/json' }
+        }).then(data => data.json()).then((data) => setMenteeResponse([...data['mentees']]))
+    }, [])
+
+    const Card = ({ user }) => {
+        return (
+            <div className={classes.card}>
+                <div style={{
+                    backgroundImage: `url(${profilePhotos[giveRandom()]})`, height: "15vh", width: "100wh", borderRadius: "10px 10px 0 0"
+                }}></div>
+                <div className={classes.cardImageDiv}><img className={classes.cardImage} src={profile1} alt="Profile" /></div>
+                <div className={classes.cardName}><h1>{user.name}</h1></div>
+                <h3 style={{ margin: "2rem", marginBottom: '0rem' }}>Skills</h3>
+                <div className={classes.skillsDiv}>
+                    {user.skills.map(skill => {
+                        return <h3 className={classes.skill}>{skill}</h3>
+                    })}
+                </div>
+                <div>
+                    <Link to="/">View Profile</Link>
+                </div>
+            </div>
+        )
+    }
+
+    const search = async () => {
+        if (query === "") {
+            return;
+        }
+        setMentorResponse(mentorResponse.filter(resp => {
+            let Include = false;
+            resp.skills.map(skill => {
+                if (skill === query) Include = true;
+                return true;
+            })
+            return Include;
+        }))
+        setMenteeResponse(menteeResponse.filter(resp => {
+            let Include = false;
+            resp.skills.map(skill => {
+                if (skill === query) Include = true;
+                return true;
+            })
+            return Include;
+        }))
+    }
 
     return (
         <div className={classes.outerDiv}>
@@ -30,32 +85,21 @@ export default function Search() {
             <div className={classes.searchOuterDiv}>
                 <h1>Search what skill you want</h1>
                 <div className={classes.searchDiv}>
-                    <input placeholder='react, cpp ......'></input>
-                    <div style={{ positions: 'relative' }}>
-                        <Button name="Search Person"></Button>
+                    <input placeholder='react, cpp ......' onChange={(e) => setQuery(e.target.value)} value={query}></input>
+                    <div style={{ positions: 'relative' }} onClick={search}>
+                        <Button name="Find People"></Button>
                     </div>
                 </div>
             </div>
-
             <div className={classes.cardsDiv}>
-                <div className={classes.card}>
-                    <div style={{
-                        backgroundImage: `url(${profilePhotos[giveRandom()]})`, height: "15vh", width: "100wh", borderRadius: "10px 10px 0 0"
-                    }}></div>
-                    <div className={classes.cardImageDiv}><img className={classes.cardImage} src={profile1} alt="Profile" /></div>
-                    <div className={classes.cardName}><h1>Aryan Jangid</h1></div>
-                    <h3 style={{ margin: "2rem", marginBottom: '0rem' }}>Skills</h3>
-                    <div className={classes.skillsDiv}>
-                        <h3 className={classes.skill}>React</h3>
-                        <h3 className={classes.skill}>C++</h3>
-                        <h3 className={classes.skill}>Java</h3>
-                        <h3 className={classes.skill}>Python</h3>
-                        <h3 className={classes.skill}>GitHub</h3>
-                    </div>
-                    <div>
-                        <Link to="/">View Profile</Link>
-                    </div>
-                </div>
+                <h3>Mentor</h3>
+                {mentorResponse && mentorResponse.map(resp => {
+                    return <Card user={resp} />
+                })}
+                <h1>Mentees</h1>
+                {menteeResponse && menteeResponse.map(resp => {
+                    return <Card user={resp} />
+                })}
             </div>
         </div>
     )
