@@ -25,6 +25,7 @@ app.post('/mentor/register', async (req, res) => {
             name: req.body.name,
             email: req.body.email,
             password: newPassword,
+            skills: req.body.skills
         })
         res.json({ status: 'ok' })
     } catch (err) {
@@ -202,7 +203,6 @@ app.get('/mentor/rooms', async (req, res) => {
     try {
         const email = req.body.email
         const mentor = await Mentor.find({ email: email })
-        console.log(mentor)
         return res.json({ status: 'ok', rooms: [...mentor[0].rooms] })
     } catch (error) {
         console.log(error)
