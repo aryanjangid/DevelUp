@@ -48,7 +48,7 @@ export default function Login() {
         <div className={classes.loginMainDiv} style={{
             backgroundImage: `url(${background})`, height: "fitContent", backgroundRepeat: 'no-repeat', width: "100wh", backgroundSize: 'cover',
         }}  >
-            <h1 style={{ marginBottom: "2rem" }}>DevelUp</h1>
+            {/* <h1 style={{ marginBottom: "2rem" }}>DevelUp</h1> */}
             <div className={classes.loginBox}>
                 <h1 style={{ marginBottom: "2rem" }}>Register to DevelUp</h1>
                 <h3 style={{ marginBottom: "2rem" }}>Choose an options</h3>
@@ -79,7 +79,7 @@ export default function Login() {
                 </form>
                 {
                     selectedOption === "mentor" ?
-                        <div onClick={RegisterUser} style={{ marginTop: '20px' }} ><Button name="Register as Mentor" ></Button></div> : <div onClick={RegisterUser}><Button name="Register as Mentee" to="/"></Button></div>
+                        <div onClick={RegisterUser} style={{ marginTop: '20px',display:'flex', justifyContent: 'center' }} ><Button name="Register as Mentor" ></Button></div> : <div onClick={RegisterUser} style={{display:'flex', justifyContent: 'center'}}><Button name="Register as Mentee" to="/"></Button></div>
                 }
                 <h3 style={{ marginTop: "2rem" }}>Already a member? <span onClick={() => navigate('/login')} style={{ color: "#FFC23C", cursor: "pointer" }}>LogIn</span></h3>
             </div >

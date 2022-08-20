@@ -6,7 +6,7 @@ function Button(props) {
   return (
     <div>
       {/* <Link to={props.to?} style={{textDecoration:'none'}}> */}
-      <div className={classes.wrapper} style={{ cursor: 'pointer' }}>
+      <div className={classes.wrapper} style={{ cursor: 'pointer'}}>
         <div className={classes.cta} >
           <span>{props.name}</span>
           <span>

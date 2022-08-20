@@ -10,6 +10,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Room from "./pages/Room/Room";
 import StudyGroup from "./pages/Study Group/StudyGroup";
+import Navbar from "./pages/Navbar/Navbar";
 // import { Model } from "./components/Models/Blender";
 
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
 
   return (
     <div>
-
+      <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />

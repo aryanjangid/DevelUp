@@ -1,0 +1,30 @@
+.landingDiv{
+    display: flex;
+    background-color: #ffffff;
+}
+.landingLeftDiv{
+    width: 50%;
+    padding: 3rem;
+    padding-top: 9rem;
+}
+.threejsDiv{
+    width: 60%;
+    height: 50rem;
+}
+
+.landingLeftDiv h1{
+    font-weight: 600;
+    font-size: 3rem;
+    line-height:150%
+}
+.landingLeftDiv h1 span{
+    background-color: #FFC23C;
+    color: white;
+    padding: 0.2rem 1rem;
+    border-radius: 10px;
+}
+.landingLeftDiv h2{
+  font-family: 'DM Sans', sans-serif;
+    font-weight: 200;
+    padding-right: 3rem;
+}
