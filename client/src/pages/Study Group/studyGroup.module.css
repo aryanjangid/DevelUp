@@ -11,4 +11,57 @@
 }
 .searchDiv{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+.searchDiv div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1da1f2;
+    padding:1rem 4rem;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    /* margin:1rem */
+}
+
+.studyGroup{
+    width: 40%;
+    background-color:azure;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding:2rem;
+    margin:1rem;
+
+}
+.groupDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding:2rem; */
+}
+
+.studyGroupImg{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+.studyGroupDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.allGroups{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.viewButton{
+    background-color: #FFC23C;
+    border-radius: 10px;
+    padding:1rem 2rem;
+    color: white;
+    cursor: pointer;
 }
