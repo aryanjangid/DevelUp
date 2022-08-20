@@ -21,7 +21,8 @@ const Mentor = new mongoose.Schema(
         instagram: { type: String },
         github: { type: String },
     },
-    { collection: 'mentor-data' }
+    { collection: 'mentor-data' },
+    {timestamps:true}
 )
 
 const model = mongoose.model('MentorData', Mentor)

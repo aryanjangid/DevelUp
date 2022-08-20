@@ -6,6 +6,7 @@ const Message = new mongoose.Schema(
         email: { type: String, required: true, unique: true },
         content: { type: String, required: true },
     },
+    {timestamps:true}
 )
 
 const model = mongoose.model('MessageData', Message)

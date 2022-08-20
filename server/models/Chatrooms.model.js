@@ -15,6 +15,7 @@ const ChatRoom = new mongoose.Schema(
         email: { type: String, required: true, unique: true },
         messages: [Message]
     },
+    {timestamps:true}
 )
 
 const model = mongoose.model('ChatRoomData', ChatRoom)

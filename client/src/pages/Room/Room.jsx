@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import classes from './room.module.css'
 import profile1 from '../../Assets/profile1.png'
 import profile2 from '../../Assets/profile2.png'
@@ -10,6 +10,7 @@ import profile7 from '../../Assets/profile7.png'
 import profile8 from '../../Assets/profile8.png'
 import chatBackground from '../../Assets/chatsbackground.png'
 import { useParams } from 'react-router-dom'
+import { format } from 'timeago.js'
 
 export default function Room() {
 
@@ -18,6 +19,8 @@ export default function Room() {
     const [meetOption, setMeetOption] = useState("create")
     const [rooms, setRooms] = useState([])
     const [chatRoom, setChatRoom] = useState({ name: 'Select a room' })
+    const [user, setUser] = useState({})
+    const scrollRef = useRef()
 
     const [newMessage, setNewMessage] = useState('')
 
@@ -37,12 +40,31 @@ export default function Room() {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:4000/mentor/${mail}`).then(data => data.json()).then(data => setRooms(data['mentor'][0]['rooms']))
+        fetch(`http://localhost:4000/mentor/${mail}`).then(data => data.json()).then(data => { setRooms(data['mentor'][0]['rooms']); setUser(data['mentor'][0]) })
     }, [])
+
+    useEffect()
 
     const updateChat = (room) => {
         setChatRoom(room)
         fetch(`http://localhost:4000/room/${room.roomId}`).then(data => data.json()).then(data => setChatRoom(data['chatRoom'][0]))
+    }
+
+    const sendMessage = (e) => {
+        e.preventDefault()
+
+        const message = {
+            name: user.name,
+            email: user.email,
+            content: newMessage
+        }
+        fetch(`http://localhost:4000/room/${chatRoom.roomId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(message),
+        }).then(() => setChatRoom({ ...chatRoom, messages: [...chatRoom.messages, message] }))
     }
 
     return (
@@ -82,16 +104,17 @@ export default function Room() {
                     <div className={classes.chatsDiv}>
                         {chatRoom.messages && chatRoom.messages.map((message, index) => {
                             return (
-                                <div key={index}>
+                                <div key={index} ref={scrollRef}>
                                     <span > {message.name}</span>
                                     <h1>{message.content}</h1>
+                                    {/* <span > {format(message.createdAt)}</span> */}
                                 </div>
                             )
                         })}
                     </div>
                     <div className={classes.sendMessageDiv}>
-                        <input className={classes.inputMessageBox} placeholder='Type a message'></input>
-                        <div className={classes.sendButtton}>Send</div>
+                        <input className={classes.inputMessageBox} placeholder='Type a message' onChange={(e) => setNewMessage(e.target.value)} value={newMessage}></input>
+                        <div className={classes.sendButtton} onClick={sendMessage}>Send</div>
                     </div>
                 </div>
             </div >

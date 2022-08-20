@@ -18,7 +18,8 @@ const mentee = new mongoose.Schema(
         bio: { type: String },
         links:{ type: Array }
     },
-    { collection: 'mentee-data' }
+    { collection: 'mentee-data' },
+    {timestamps:true}
 )
 
 const model = mongoose.model('menteeData', mentee)

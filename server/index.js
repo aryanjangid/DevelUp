@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const Mentor = require('./models/mentor.model')
 const Mentee = require('./models/mentee.model')
 const ChatRoom = require('./models/Chatrooms.model')
+const Message = require('./models/message.model')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const dotenv = require('dotenv')
@@ -305,6 +306,25 @@ app.post('/room', async (req, res) => {
             roomId: req.body.roomId,
         })
         return res.json({ status: 'ok', chat })
+    } catch (error) {
+        res.json({ status: 'error', error })
+    }
+})
+
+app.post('/room/:roomId', async (req, res) => {
+    const roomId = req.params.roomId
+    try {
+        const message = {
+            name: req.body.name,
+            email: req.body.email,
+            content: req.body.content,
+        }
+        const chatRoom = await ChatRoom.find({ roomId: roomId })
+        const lol = await ChatRoom.updateOne(
+            { email: req.body.email },
+            { $set: { messages: [...chatRoom[0].messages, message] } }
+        )
+        return res.json({ status: 'ok', chatRoom })
     } catch (error) {
         res.json({ status: 'error', error })
     }

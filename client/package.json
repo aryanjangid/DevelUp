@@ -13,6 +13,7 @@
     "react-scripts": "5.0.1",
     "socket.io-client": "^4.5.1",
     "three": "^0.143.0",
+    "timeago.js": "^4.0.2",
     "uuidv4": "^6.2.13"
   },
   "scripts": {
