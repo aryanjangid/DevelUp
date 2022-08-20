@@ -14,9 +14,20 @@ export default function Login() {
     const skillOptions = ["React", "AI/ML", "Nodejs", "Django", "Express", "Flask"]
     const navigate = useNavigate()
 
-    const addSkill = (index) => {
-        let newSkills = [...skills, skillOptions[index]]
-        setSkills([...new Set(newSkills)])
+    const toggleSkill = (index) => {
+        let areadyAdded = false;
+        skills.map(skill => {
+            if (skill === skillOptions[index]) {
+                areadyAdded = true;
+            }
+            return true;
+        })
+        if (areadyAdded) {
+            setSkills(skills.filter(skill => skill !== skillOptions[index]))
+        }
+        else {
+            setSkills([...skills, skillOptions[index]])
+        }
     }
 
     const RegisterUser = async () => {
@@ -58,18 +69,18 @@ export default function Login() {
                     <input className="inputBox" type="email" id="email" name="email" placeholder='Email Id' onChange={(e) => setEmail(e.target.value)} value={email} />
                     <input className="inputBox" type="password" id="password" name="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password} />
                     <div className={classes.skills}>
-                        <h3 style={{fontSize:'1.2rem', fontWeight:'600' ,marginBottom:'1rem'}}>Choose Skills</h3>
+                        <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem' }}>Choose Skills</h3>
                         <div className={classes.skillsDiv}>
-                        {skillOptions.map((skill, index) => {
-                            return <h3 className={classes.skill} key={index} onClick={() => addSkill(index)} style={{ textAlign: 'center', margin: '10px', marginBottom: '10px', display: 'inline' }}>{skill}</h3>
-                        })}
+                            {skillOptions.map((skill, index) => {
+                                return <h3 className={classes.skill} key={index} onClick={() => toggleSkill(index)} style={{ textAlign: 'center', margin: '10px', marginBottom: '10px', display: 'inline' }}>{skill}</h3>
+                            })}
                         </div>
                     </div>
                     <div className={classes.skills}>
-                        <h3 style={{fontSize:'1.2rem', fontWeight:'600',marginBottom:'1rem'}}>Skills according to priority</h3>
+                        <h3 style={{ fontSize: '1.2rem', fontWeight: '600', marginBottom: '1rem' }}>Skills according to priority</h3>
                         <div className={classes.skillsDiv}>
                             {skills.map((skill, index) => {
-                                return <h3 className={classes.skill} key={index} onClick={() => addSkill(index)} style={{ textAlign: 'center', margin: '10px', marginBottom: '10px', display: 'inline' }}>{skill}</h3>
+                                return <h3 className={classes.skill} key={index} onClick={() => toggleSkill(index)} style={{ textAlign: 'center', margin: '10px', marginBottom: '10px', display: 'inline' }}>{skill}</h3>
                             })}
                         </div>
                     </div>

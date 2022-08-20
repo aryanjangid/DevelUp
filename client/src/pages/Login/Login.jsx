@@ -51,7 +51,7 @@ export default function Login() {
 
   return (
     <div className={classes.loginMainDiv} style={{
-      backgroundImage: `url(${background})`,height: "fitContent" , backgroundRepeat: 'no-repeat', width: "100wh", backgroundSize: 'cover',
+      backgroundImage: `url(${background})`, height: "fitContent", minHeight: "100vh", backgroundRepeat: 'no-repeat', width: "100wh", backgroundSize: 'cover',
     }}  >
       <h1 style={{ marginBottom: "2rem" }}>DevelUp</h1>
       <div className={classes.loginBox}>
@@ -71,7 +71,7 @@ export default function Login() {
           <from action="">
             <input className="inputBox" type="email" id="email" name="email" placeholder='Email Id' onChange={(e) => setMenteeEmail(e.target.value)} value={menteeEmail} />
             <input style={{ marginBottom: "3rem" }} className="inputBox" type="password" id="password" name="password" placeholder='Password' onChange={(e) => setMenteePassword(e.target.value)} value={menteePassword} />
-            <div  onClick={loginUser}><Button name="Register as Mentee" to="/"></Button></div>
+            <div onClick={loginUser}><Button name="Register as Mentee" to="/"></Button></div>
           </from>
         }
         <h3 style={{ marginTop: "3rem" }}>New here? <span onClick={() => navigate('/register')} style={{ color: "#FFC23C", cursor: "pointer" }}>Register</span></h3>
