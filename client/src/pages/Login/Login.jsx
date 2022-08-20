@@ -65,13 +65,13 @@ export default function Login() {
           <from action="" >
             <input className="inputBox" type="email" id="email" name="email" placeholder='Email Id' onChange={(e) => setMentorEmail(e.target.value)} value={mentorEmail} />
             <input style={{ marginBottom: "3rem" }} className="inputBox" type="password" id="password" name="password" placeholder='Password' onChange={(e) => setMentorPassword(e.target.value)} value={mentorPassword} />
-            <div onClick={loginUser}><Button name="Register as Mentor" to="/" ></Button></div>
+            <div onClick={loginUser}><Button name="Login as Mentor" to="/" ></Button></div>
           </from>
           :
           <from action="">
             <input className="inputBox" type="email" id="email" name="email" placeholder='Email Id' onChange={(e) => setMenteeEmail(e.target.value)} value={menteeEmail} />
             <input style={{ marginBottom: "3rem" }} className="inputBox" type="password" id="password" name="password" placeholder='Password' onChange={(e) => setMenteePassword(e.target.value)} value={menteePassword} />
-            <div onClick={loginUser}><Button name="Register as Mentee" to="/"></Button></div>
+            <div onClick={loginUser}><Button name="Login as Mentee" to="/"></Button></div>
           </from>
         }
         <h3 style={{ marginTop: "3rem" }}>New here? <span onClick={() => navigate('/register')} style={{ color: "#FFC23C", cursor: "pointer" }}>Register</span></h3>
