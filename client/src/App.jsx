@@ -8,6 +8,7 @@ import MentorProfile from './pages/MentorProfile/MentorProfile';
 import Search from './pages/Search/Search'
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import Room from "./pages/Room/Room";
 // import { Model } from "./components/Models/Blender";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/search" element={<Search />} />
         <Route exact path="/profile/:mail" element={<MentorProfile />} />
+        <Route exact path="/room" element={<Room />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
