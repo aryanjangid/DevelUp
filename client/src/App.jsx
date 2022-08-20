@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, Suspense, useState } from "react";
 import { Route, Navigate } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import Home from './pages/Home/Home';
@@ -6,9 +6,16 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register.jsx';
 import MentorProfile from './pages/MentorProfile/MentorProfile';
 import Search from './pages/Search/Search'
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+// import { Model } from "./components/Models/Blender";
+
 export default function App() {
+  // const [action1, setAction1] = useState("aryan");
+
   return (
     <div>
+      
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />

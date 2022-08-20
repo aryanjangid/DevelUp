@@ -42,7 +42,7 @@ export default function Search() {
                     <div style={{
                         backgroundImage: `url(${profilePhotos[giveRandom()]})`, height: "15vh", width: "100wh", borderRadius: "10px 10px 0 0"
                     }}></div>
-                    <div className={classes.cardImageDiv}><img className={classes.cardImage} src={profile1} alt="Profile-Picture" /></div>
+                    <div className={classes.cardImageDiv}><img className={classes.cardImage} src={profile1} alt="Profile" /></div>
                     <div className={classes.cardName}><h1>Aryan Jangid</h1></div>
                     <h3 style={{ margin: "2rem", marginBottom: '0rem' }}>Skills</h3>
                     <div className={classes.skillsDiv}>

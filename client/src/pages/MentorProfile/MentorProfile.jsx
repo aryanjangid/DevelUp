@@ -108,7 +108,7 @@ export default function MentorProfile() {
                         <h3><span>Email: </span>a{email}</h3>
                         <div>
                             <div style={{ marginTop: "2rem", marginBottom: "2rem" }} className={classes.wrapper}>
-                                {facebook !== '' ? <a href={facebook} target="_blank" style={{ color: "#4267b2" }}>
+                                {facebook !== '' ? <a href={facebook} target="_blank" rel="noreferrer" style={{ color: "#4267b2" }}>
                                     <div className={classes.button}>
                                         <div className={classes.icon}>
                                             <i className="fab fa-facebook-f" />
@@ -116,28 +116,28 @@ export default function MentorProfile() {
                                         <span>Facebook</span>
                                     </div>
                                 </a> : ''}
-                                {twitter !== '' ? <a href={twitter} target="_blank" style={{ color: "#1da1f2" }}>
+                                {twitter !== '' ? <a href={twitter} target="_blank" rel="noreferrer" style={{ color: "#1da1f2" }}>
                                     <div className={classes.button}>
                                         <div className={classes.icon}>
                                             <i className="fab fa-twitter" />
                                         </div>
                                         <span>Twitter</span>
                                     </div></a> : ''}
-                                {instagram !== '' ? <a href={instagram} target="_blank" style={{ color: "#e1306c" }}>
+                                {instagram !== '' ? <a href={instagram} target="_blank" rel="noreferrer" style={{ color: "#e1306c" }}>
                                     <div className={classes.button}>
                                         <div className={classes.icon}>
                                             <i className="fab fa-instagram" />
                                         </div>
                                         <span>Instagram</span>
                                     </div></a> : ''}
-                                {github !== '' ? <a href={github} target="_blank" style={{ color: "#333" }}>
+                                {github !== '' ? <a href={github} target="_blank" rel="noreferrer" style={{ color: "#333" }}>
                                     <div className={classes.button} >
                                         <div className={classes.icon}>
                                             <i className="fab fa-github" />
                                         </div>
                                         <span>Github</span>
                                     </div></a> : ''}
-                                {linkedin !== '' ? <a href={linkedin} target="_blank" style={{ color: "#0077b5" }}>
+                                {linkedin !== '' ? <a href={linkedin} target="_blank" rel="noreferrer" style={{ color: "#0077b5" }}>
                                     <div className={classes.button}>
                                         <div className={classes.icon}>
                                             <i className="fab fa-linkedin" />

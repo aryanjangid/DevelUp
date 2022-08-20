@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+    padding:5rem;
 }
 
 .loginBox {
@@ -28,4 +29,28 @@
     color: white;
     cursor: pointer;
     font-size: 0.6rem;
+}
+.skills{
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width:20rem;
+    margin:2rem auto;
+    padding:1rem;
+    border-radius: 10px;
+    position: relative;
+}
+.skillsDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill{
+        background-color: #FAF3E3;
+        padding: 0.3rem 0.7rem;
+        color: gray;
+        border-radius: 10px;
+        margin:0.5rem 1rem;
+        cursor: pointer;
 }

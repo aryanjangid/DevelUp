@@ -43,36 +43,40 @@ export default function Login() {
     }
     return (
         <div className={classes.loginMainDiv} style={{
-            backgroundImage: `url(${background})`, height: "100vh", backgroundRepeat: 'no-repeat', width: "100wh", backgroundSize: 'cover',
+            backgroundImage: `url(${background})`, height: "fitContent", backgroundRepeat: 'no-repeat', width: "100wh", backgroundSize: 'cover',
         }}  >
-            <h1>DevelUp</h1>
+            <h1 style={{ marginBottom: "2rem" }}>DevelUp</h1>
             <div className={classes.loginBox}>
-                <h1>Register to DevelUp</h1>
-                <h3>Choose an options</h3>
+                <h1 style={{ marginBottom: "2rem" }}>Register to DevelUp</h1>
+                <h3 style={{ marginBottom: "2rem" }}>Choose an options</h3>
                 <div style={{ marginBottom: "2rem" }} className={classes.selectoption}>
-                    <div style={{ backgroundColor: `${selectedOption == "mentor" ? "#FFC23C" : "#A5C9CA"}` }} onClick={() => setSelectedOption("mentor")}><h1>Mentor</h1></div>
-                    <div style={{ backgroundColor: `${selectedOption == "mentee" ? "#FFC23C" : "#A5C9CA"}` }} onClick={() => setSelectedOption("mentee")}><h1>Mentee</h1></div>
+                    <div style={{ backgroundColor: `${selectedOption === "mentor" ? "#FFC23C" : "#A5C9CA"}` }} onClick={() => setSelectedOption("mentor")}><h1>Mentor</h1></div>
+                    <div style={{ backgroundColor: `${selectedOption === "mentee" ? "#FFC23C" : "#A5C9CA"}` }} onClick={() => setSelectedOption("mentee")}><h1>Mentee</h1></div>
                 </div>
                 <form action="">
                     <input className="inputBox" type="text" id="name" name="name" placeholder='Name' onChange={(e) => setName(e.target.value)} value={name} />
                     <input className="inputBox" type="email" id="email" name="email" placeholder='Email Id' onChange={(e) => setEmail(e.target.value)} value={email} />
                     <input className="inputBox" type="password" id="password" name="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password} />
                     <div className={classes.skills}>
-                        <h3>Choose Skills</h3>
+                        <h3 style={{fontSize:'1.2rem', fontWeight:'600' ,marginBottom:'1rem'}}>Choose Skills</h3>
+                        <div className={classes.skillsDiv}>
                         {skillOptions.map((skill, index) => {
-                            return <h3 key={index} onClick={() => addSkill(index)} style={{ textAlign: 'center', margin: '10px', marginBottom: '10px', display: 'inline' }}>{skill}</h3>
+                            return <h3 className={classes.skill} key={index} onClick={() => addSkill(index)} style={{ textAlign: 'center', margin: '10px', marginBottom: '10px', display: 'inline' }}>{skill}</h3>
                         })}
+                        </div>
                     </div>
                     <div className={classes.skills}>
-                        <h3>Skills according to priority</h3>
-                        {skills.map((skill, index) => {
-                            return <h3 key={index} onClick={() => addSkill(index)} style={{ textAlign: 'center', margin: '10px', marginBottom: '10px', display: 'inline' }}>{skill}</h3>
-                        })}
+                        <h3 style={{fontSize:'1.2rem', fontWeight:'600',marginBottom:'1rem'}}>Skills according to priority</h3>
+                        <div className={classes.skillsDiv}>
+                            {skills.map((skill, index) => {
+                                return <h3 className={classes.skill} key={index} onClick={() => addSkill(index)} style={{ textAlign: 'center', margin: '10px', marginBottom: '10px', display: 'inline' }}>{skill}</h3>
+                            })}
+                        </div>
                     </div>
                 </form>
                 {selectedOption === "mentor" ?
                     <div onClick={RegisterUser} style={{ marginTop: '20px' }} ><Button name="Register as Mentor" ></Button></div> : <div onClick={RegisterUser}><Button name="Register as Mentee" to="/"></Button></div>}
-                <h3>Already a member? <span onClick={() => navigate('/login')} style={{ color: "#FFC23C", cursor: "pointer" }}>LogIn</span></h3>
+                <h3 style={{ marginTop: "2rem" }}>Already a member? <span onClick={() => navigate('/login')} style={{ color: "#FFC23C", cursor: "pointer" }}>LogIn</span></h3>
             </div>
 
         </div >
