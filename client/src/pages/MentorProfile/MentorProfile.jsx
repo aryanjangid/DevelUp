@@ -67,7 +67,6 @@ export default function MentorProfile() {
         })
         setEditInfo(false)
         setEditBio(false)
-        const result = await req.json()
     }
 
     const createNewRoom = async (e) => {
@@ -80,6 +79,7 @@ export default function MentorProfile() {
             roomId: uuid()
         }
         e.preventDefault()
+        setRooms(...rooms, newRoom)
         const req = await fetch(`http://localhost:4000/mentor/${mail}`, {
             method: 'POST',
             headers: {
@@ -87,12 +87,11 @@ export default function MentorProfile() {
             },
             body: JSON.stringify({
                 rooms: [
-                    ...rooms, newRoom
+                    ...rooms
                 ]
             })
         })
         const result = await req.json()
-        console.log(result)
     }
 
     return (
