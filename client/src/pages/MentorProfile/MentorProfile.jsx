@@ -77,12 +77,13 @@ export default function MentorProfile() {
         if (newRoomName === "") {
             return
         }
+        const uid = uuid()
         const newRoom = {
             name: newRoomName,
-            roomId: uuid()
+            roomId: uid
         }
         e.preventDefault()
-        const req = await fetch(`http://localhost:4000/mentor/${mail}`, {
+        await fetch(`http://localhost:4000/mentor/${mail}`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
@@ -91,6 +92,17 @@ export default function MentorProfile() {
                 rooms: [
                     ...rooms, newRoom
                 ]
+            })
+        })
+        await fetch(`http://localhost:4000/room/`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json',
+            },
+            body: JSON.stringify({
+                email: mail,
+                roomId: uid,
+                name: newRoomName
             })
         })
         setRooms([...rooms, newRoom])
@@ -106,7 +118,7 @@ export default function MentorProfile() {
                         <pointLight intensity={2} position={[1, 1, 3]} color="#395B64" />
                         <pointLight intensity={2} position={[0, 3, -10]} color="white" /> */}
                         <pointLight intensity={10} position={[0, 0, 0]} color="#B20600" />
-                        <OrbitControls enableDamping={true} enableZoom={false} />
+                        <OrbitControls enableDamping={true} enableZoom={true} />
                         <Suspense fallback={null}>
                             <Blender action={action1} /> 
                         </Suspense>

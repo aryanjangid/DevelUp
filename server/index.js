@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require('mongoose')
 const Mentor = require('./models/mentor.model')
 const Mentee = require('./models/mentee.model')
+const ChatRoom = require('./models/Chatrooms.model')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const dotenv = require('dotenv')
@@ -285,7 +286,29 @@ app.get('/mentee/rooms', async (req, res) => {
     }
 })
 
+app.get('/room/:roomId', async (req, res) => {
+    const roomId = req.params.roomId
+    try {
+        const chatRoom = await ChatRoom.find({ roomId: roomId })
+        return res.json({ status: 'ok', chatRoom })
+    } catch (error) {
+        res.json({ status: 'error', error })
+    }
+})
 
+app.post('/room', async (req, res) => {
+    const email = req.body.email
+    try {
+        const chat = await ChatRoom.create({
+            email: email,
+            name: req.body.name,
+            roomId: req.body.roomId,
+        })
+        return res.json({ status: 'ok', chat })
+    } catch (error) {
+        res.json({ status: 'error', error })
+    }
+})
 
 app.listen(4000, () => {
     console.log('Server started on 4000')
