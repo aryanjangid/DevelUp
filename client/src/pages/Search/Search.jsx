@@ -95,15 +95,19 @@ export default function Search() {
                     </div>
                 </div>
             </div>
-            <div className={classes.cardsDiv}>
-                <h3>Mentor</h3>
-                {mentorResponse && mentorResponse.map(resp => {
-                    return <Card user={resp} />
-                })}
-                <h1>Mentees</h1>
-                {menteeResponse && menteeResponse.map(resp => {
-                    return <Card user={resp} />
-                })}
+            <div >
+                <div className={classes.cardsDiv}>
+                    <h1>Mentor</h1>
+                    {mentorResponse && mentorResponse.map(resp => {
+                        return <Card user={resp} />
+                    })}
+                </div>
+                <div className={classes.cardsDiv}>
+                    <h1>Mentees</h1>
+                    {menteeResponse && menteeResponse.map(resp => {
+                        return <Card user={resp} />
+                    })}
+                </div>
             </div>
         </div>
     )
