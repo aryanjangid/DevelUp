@@ -6,6 +6,7 @@ export default function Home() {
     <div>
       <h1 style={{color:"black"}}>Home</h1>
       <Button name="login" to="login"></Button>
+      <Button name="mentor-profile" to="mentor-profile"></Button>
     </div>
   )
 }
