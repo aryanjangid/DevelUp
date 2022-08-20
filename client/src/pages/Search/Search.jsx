@@ -13,10 +13,14 @@ import profile8 from '../../Assets/profile8.png'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 export default function Search() {
     const [query, setQuery] = useState('')
     const [mentorResponse, setMentorResponse] = useState([])
     const [menteeResponse, setMenteeResponse] = useState([])
+
+    const navigate = useNavigate()
 
     const profilePhotos = [profile1, profile2, profile3, profile4, profile5, profile6, profile7, profile8];
 
@@ -48,7 +52,7 @@ export default function Search() {
                     })}
                 </div>
                 <div>
-                    <Link to="/">View Profile</Link>
+                    <div onClick={() => navigate(`/profile/${user.email}`)}>View Profile</div>
                 </div>
             </div>
         )
