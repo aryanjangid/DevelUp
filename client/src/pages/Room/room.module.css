@@ -1,0 +1,133 @@
+.outerDiv{
+    padding:5rem;
+}
+
+.searchDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding:1rem 2rem;
+    border-radius: 10px;
+}
+.searchTeamInput{
+   border: none;
+   font-family: 'DM Sans', sans-serif;
+   outline: none;
+   font-size: 1rem;
+    border-radius: 10px;
+    width: 60%;
+    padding-left: 1rem;
+}
+
+.searchButton{
+    font-family: 'DM Sans', sans-serif;
+    background-color: #1da1f2;
+    padding:0.5rem 1.5rem;
+    color:white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.roomDashboard{
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.allTeams{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width:30%;
+    border-radius: 10px;
+    padding:1rem;
+    height: 40rem;
+    overflow-y: scroll;
+}
+.team{
+    padding: 1rem ;
+    border-bottom: 1.5px solid #DDDDDD;
+    margin-bottom: 2rem;
+    display: flex;
+}
+.teamImage{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+.teamName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+}
+.roomChats{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+    padding:1rem;
+    width:63%;
+    height: 40rem;
+    /* overflow-y: scroll; */
+}
+.teamDetails{
+    display: flex;
+}
+.teamDetailDiv{
+    padding: 1rem ;
+    border-bottom: 1.5px solid #DDDDDD;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.meetOptions{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+.meetOptions h3{
+    margin-right: 1rem;
+}
+.meetOptions div{
+    background-color: #FFC23C;
+    color: white;
+    font-size: 0.6rem;
+    padding:0.7rem 1.8rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.chatsDiv{
+    height: 25rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+    padding:1rem;
+    overflow-y: scroll;
+}
+.sendMessageDiv{
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.inputMessageBox{
+    padding: 1rem 2rem;
+    width: 70%;
+   font-family: 'DM Sans', sans-serif;
+   font-size: 1rem;
+   border:1px solid #DDDDDD;
+    border-radius: 10px;
+    padding-left: 1rem;
+}
+.sendButtton{
+    background-color: #1da1f2;
+    width:22%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    border-radius: 10px;
+
+}
