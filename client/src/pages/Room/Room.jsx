@@ -8,6 +8,7 @@ import profile5 from '../../Assets/profile5.png'
 import profile6 from '../../Assets/profile6.png'
 import profile7 from '../../Assets/profile7.png'
 import profile8 from '../../Assets/profile8.png'
+import chatBackground from '../../Assets/chatsbackground.png'
 
 export default function Room() {
 
@@ -20,7 +21,8 @@ export default function Room() {
     }
 
     return (
-        <div className={classes.outerDiv}>
+        <div className={classes.outerDiv} style={{
+            backgroundImage: `url(${chatBackground})` ,height:'fitContent'}}>
             <div className={classes.searchDiv}>
                 <input className={classes.searchTeamInput} placeholder="Search...."></input>
                 <div className={classes.searchButton}>Search</div>
@@ -57,11 +59,12 @@ export default function Room() {
                     </div>
 
                 </div>
-                <div className={classes.roomChats}>
+                <div className={classes.roomChats} style={{
+            backgroundImage: `url(${chatBackground})` ,height:'fitContent'}}>
                     <div className={classes.teamDetailDiv}>
                         <div className={classes.teamDetails}>
                             <img className={classes.teamImage} src={profilePhotos[giveRandom()]} alt="team"></img>
-                            <div className={classes.teamName}><h3>Aryan</h3></div>
+                            <div className={classes.teamName}><h3 style={{color:'white'}}>Aryan</h3></div>
                         </div>
                         {meetOption === "create" ?
                             <div className={classes.meetOptions}>

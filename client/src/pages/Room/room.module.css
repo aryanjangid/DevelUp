@@ -36,6 +36,8 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     justify-content: space-between;
+    background-color: white;
+
 }
 
 .allTeams{
@@ -88,6 +90,7 @@
     align-items: center;
 }
 .meetOptions h3{
+    color: white;
     margin-right: 1rem;
 }
 .meetOptions div{
@@ -104,6 +107,7 @@
     border-radius: 10px;
     padding:1rem;
     overflow-y: scroll;
+    background-color: white;
 }
 .sendMessageDiv{
     margin-top: 1.2rem;
