@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { v4 as uuid } from "uuid";
 import { Blender } from '../../components/Models/Blender';
 import { Canvas, useFrame } from "@react-three/fiber";
+import { motion } from 'framer-motion';
 import { OrbitControls } from "@react-three/drei";
 export default function MenteeProfile() {
     const [action1, setAction1] = useState("aryan");
@@ -112,7 +113,8 @@ export default function MenteeProfile() {
     return (
         <div className={classes.MainDiv}>
             <div className={classes.profileMaindiv}>
-                <div className={classes.profileLeftdiv}>
+                <motion.div 
+                     className={classes.profileLeftdiv}>
                     <Canvas alpha={false}>
                         <ambientLight intensity={0.5} />
                         {/* <pointLight intensity={2} position={[-1, 1, 3]} color="#2C3333" />
@@ -124,9 +126,10 @@ export default function MenteeProfile() {
                             <Blender action={action1} />
                         </Suspense>
                     </Canvas>
-                </div>
+                </motion.div>
                 <div className={classes.profileRightdiv}>
-                    <div className={classes.basicDetails}>
+                    <motion.div initial={{ y: -10, opacity: 0, scale: 0.5 }}
+                        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }} transition={{duration:0.2,ease:'easeOut'}} className={classes.basicDetails}>
                         <h1 style={{ color: '#6225E6', fontSize: '1.4rem', marginBottom: '1rem' }}>Hey! Mentee</h1>
                         <h1>{name}</h1>
                         <h3 style={{ margin: '1rem 0' }}><span>Email: </span>{email}</h3>
@@ -185,8 +188,9 @@ export default function MenteeProfile() {
                             <></>
                         }
 
-                    </div>
-                    <div className={classes.basicDetails}>
+                    </motion.div>
+                    <motion.div initial={{ y: -10, opacity: 0, scale: 0.5 }}
+                        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }} transition={{duration:0.4,ease:'easeOut'}} className={classes.basicDetails}>
                         <div className={classes.iconDiv} >
                             <div><i style={{ marginRight: '1rem', backgroundColor: '#f24e1e' }} className="fa-solid fa-user" /></div>
                             <div ><h1 style={{ color: '#050038' }} >Bio</h1></div>
@@ -202,8 +206,9 @@ export default function MenteeProfile() {
                             :
                             <></>
                         }
-                    </div>
-                    <div className={classes.basicDetails}>
+                    </motion.div>
+                    <motion.div initial={{ y: -10, opacity: 0, scale: 0.5 }}
+                        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }} transition={{duration:0.6,ease:'easeOut'}} className={classes.basicDetails}>
                         <div className={classes.iconDiv} style={{ marginBottom: "2rem" }}  >
                             <div><i style={{ marginRight: '1rem', height: '1.8rem', backgroundColor: '#ffc23c', padding: '1rem' }} className="fa-solid fa-people-roof" /></div>
                             <div ><h1 style={{ color: '#050038' }} >Your Rooms</h1></div>
@@ -216,7 +221,7 @@ export default function MenteeProfile() {
                                 <input style={{ width: '80%', marginLeft: '0' }} className="inputBox" placeholder='Room Name' onChange={(e) => setNewRoomName(e.target.value)} value={newRoomName} ></input>
                                 <div style={{ backgroundColor: 'green', marginTop: "2rem" }} className={classes.editButton} onClick={createNewRoom}><h1>Save room</h1></div>
                             </>)}
-                    </div>
+                    </motion.div>
 
                 </div>
 

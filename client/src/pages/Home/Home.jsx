@@ -10,6 +10,7 @@ import Bulb from '../../Assets/bulb.png'
 import Pencil from '../../Assets/pencil.png'
 import News from '../../Assets/news.png'
 import { useNavigate } from 'react-router-dom'
+import { motion } from "framer-motion"
 
 export default function Home() {
   const navigate = useNavigate()
@@ -46,16 +47,18 @@ export default function Home() {
 
       <div className={classes.secondDiv} style={{
       backgroundImage: `url(${tempback})`, height: "fitContent", backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}>
-        <div className={classes.nextDivs}>
+        <motion.div whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }} className={classes.nextDivs} >
           <h1>Want to <span>learn new skill</span></h1>
           <h3>Our secondary goal is to build a strong mentoring relationship between our seasoned seniors and juniors</h3>
           <div onClick={() => { navigate(`/search`) }}><Button center="1" name="Search Here" color="#4262ff"></Button></div>
-        </div>
-        <div className={classes.nextDivs}>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }} className={classes.nextDivs}>
           <h1>Check out our <span style={{backgroundColor: "#a259ff"}}>Study Groups</span></h1>
           <h3>This will allow the students to learn a lot in a short amount of time while also allowing them to form strong bonds with their peers.</h3>
           <div onClick={() => { navigate(`/studygroups`)} }><Button center="1" name="Check Now"  color="#4262ff"></Button></div>
-        </div>
+        </motion.div>
       </div>
 
     </div>
