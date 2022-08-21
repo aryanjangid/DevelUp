@@ -20,7 +20,7 @@ const Navbar = () => {
     return (
         <>
             <Nav style={{
-                backgroundImage: `url(${background})`, height: "fitContent"
+                backgroundImage: `url(${background})`, height: "fitContent",position:"fixed", width:"100wh"
             }}>
                 <NavLink to='/'>
                     <img style={{ width: "3rem", height: "3rem" }} src={logo} alt='logo' />

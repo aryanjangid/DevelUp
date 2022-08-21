@@ -1,12 +1,12 @@
 import React, { useEffect, useState, Suspense } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import classes from './mentorProfile.module.css'
+import classes from './menteeProfile.module.css'
 import { useParams } from "react-router";
 import { v4 as uuid } from "uuid";
 import { Blender } from '../../components/Models/Blender';
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-export default function MentorProfile() {
+export default function MenteeProfile() {
     const [action1, setAction1] = useState("aryan");
 
     const [facebook, setFacebook] = useState("");
@@ -127,7 +127,7 @@ export default function MentorProfile() {
                 </div>
                 <div className={classes.profileRightdiv}>
                     <div className={classes.basicDetails}>
-                        <h1 style={{ color: '#6225E6', fontSize: '1.4rem', marginBottom: '1rem' }}>Hey! Mentor</h1>
+                        <h1 style={{ color: '#6225E6', fontSize: '1.4rem', marginBottom: '1rem' }}>Hey! Mentee</h1>
                         <h1>{name}</h1>
                         <h3 style={{ margin: '1rem 0' }}><span>Email: </span>{email}</h3>
                         <h3><span>Favourite Skills: </span>{email}</h3>
@@ -211,7 +211,7 @@ export default function MentorProfile() {
                         {rooms.map((room, index) => {
                             return <div className={classes.roomDiv} style={{ marginLeft: "0" }} key={index}><h3>{room.name}</h3><div className={classes.viewRoomButton}>View</div></div>
                         })}
-                        {createRoom === false ? <div style={{ backgroundColor: '#4262ff', marginTop: "2rem" }} className={classes.editButton} onClick={() => setCreateRoom(true)}><h1>Create room</h1></div> :
+                        {createRoom === false ? <div style={{ backgroundColor: '#4262ff', marginTop: "2rem" , display: 'none'}} className={classes.editButton} onClick={() => setCreateRoom(true)}><h1>Create room</h1></div> :
                             (<>
                                 <input style={{ width: '80%', marginLeft: '0' }} className="inputBox" placeholder='Room Name' onChange={(e) => setNewRoomName(e.target.value)} value={newRoomName} ></input>
                                 <div style={{ backgroundColor: 'green', marginTop: "2rem" }} className={classes.editButton} onClick={createNewRoom}><h1>Save room</h1></div>
