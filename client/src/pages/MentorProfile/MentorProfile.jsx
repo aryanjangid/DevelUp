@@ -127,9 +127,9 @@ export default function MentorProfile() {
                 </div>
                 <div className={classes.profileRightdiv}>
                     <div className={classes.basicDetails}>
-                        <h1 style={{ color: '#6225E6', fontSize: '1.4rem', marginBottom: '1rem' }}>Hey!</h1>
+                        <h1 style={{ color: '#6225E6', fontSize: '1.4rem', marginBottom: '1rem' }}>Hey! Mentor</h1>
                         <h1>{name}</h1>
-                        <h3><span>Email: </span>{email}</h3>
+                        <h3 style={{ margin: '1rem 0' }}><span>Email: </span>{email}</h3>
                         <h3><span>Favourite Skills: </span>{email}</h3>
                         <div>
                             <div style={{ marginTop: "2rem", marginBottom: "2rem" }} className={classes.wrapper}>
@@ -187,7 +187,11 @@ export default function MentorProfile() {
 
                     </div>
                     <div className={classes.basicDetails}>
-                        <h1>Bio</h1>
+                        <div className={classes.iconDiv} >
+                            <div><i style={{ marginRight: '1rem', backgroundColor: '#f24e1e' }} className="fa-solid fa-user" /></div>
+                            <div ><h1 style={{ color: '#050038' }} >Bio</h1></div>
+                        </div>
+
                         <h3 style={{ margin: '2rem', marginLeft: '0' }}>{bio}</h3>
                         <div onClick={() => setEditBio(!editBio)} className={classes.editButton}><h1>Edit Bio</h1></div>
                         {editBio ?
@@ -200,11 +204,14 @@ export default function MentorProfile() {
                         }
                     </div>
                     <div className={classes.basicDetails}>
-                        <h1>Rooms</h1>
+                        <div className={classes.iconDiv} style={{marginBottom: "2rem" }}  >
+                            <div><i style={{ marginRight: '1rem',height:'1.8rem', backgroundColor: '#ffc23c', padding:'1rem' }} className="fa-solid fa-people-roof" /></div>
+                            <div ><h1 style={{ color: '#050038' }} >Your Rooms</h1></div>
+                        </div>
                         {rooms.map((room, index) => {
                             return <div className={classes.roomDiv} style={{ marginLeft: "0" }} key={index}><h3>{room.name}</h3><div className={classes.viewRoomButton}>View</div></div>
                         })}
-                        {createRoom === false ? <div style={{ backgroundColor: 'green', marginTop: "2rem" }} className={classes.editButton} onClick={() => setCreateRoom(true)}><h1>Create room</h1></div> :
+                        {createRoom === false ? <div style={{ backgroundColor: '#4262ff', marginTop: "2rem" }} className={classes.editButton} onClick={() => setCreateRoom(true)}><h1>Create room</h1></div> :
                             (<>
                                 <input style={{ width: '80%', marginLeft: '0' }} className="inputBox" placeholder='Room Name' onChange={(e) => setNewRoomName(e.target.value)} value={newRoomName} ></input>
                                 <div style={{ backgroundColor: 'green', marginTop: "2rem" }} className={classes.editButton} onClick={createNewRoom}><h1>Save room</h1></div>
