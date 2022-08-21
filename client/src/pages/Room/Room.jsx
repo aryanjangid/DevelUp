@@ -104,8 +104,8 @@ export default function Room() {
                     <div className={classes.teamDetailDiv}>
                         <div className={classes.teamDetails}>
                             <img className={classes.teamImage} src={profile1} alt="team"></img>
-                            <div className={classes.teamName}><h3 style={{ color: 'white' }}>{rooms && chatRoom.name}</h3></div>
-                            <div className="requests" style={{marginLeft:'1rem'}}> <i style={{fontSize:'2rem', color:'#ffc23c'}} class="fa-solid fa-envelope"></i></div>
+                            <div className={classes.teamName}><h3 style={{ color: 'white' }}>{chatRoom && chatRoom.name}</h3></div>
+                            <div className="requests" style={{ marginLeft: '1rem' }}> <i style={{ fontSize: '2rem', color: '#ffc23c' }} class="fa-solid fa-envelope"></i></div>
                         </div>
                         {meetOption === "create" ?
                             <div className={classes.meetOptions}>
@@ -140,19 +140,19 @@ export default function Room() {
             <div className={classes.requestsDashboard}>
                 <div className={classes.requestsDiv}>
                     <img className={classes.teamImage} src={profile3} alt="pro"></img>
-                    <h3 style={{marginLeft:'2rem'}}>Aryan</h3>
+                    <h3 style={{ marginLeft: '2rem' }}>Aryan</h3>
                 </div>
                 <div className={classes.requestsDiv}>
                     <img className={classes.teamImage} src={profile3} alt="pro"></img>
-                    <h3 style={{marginLeft:'2rem'}}>Aryan</h3>
+                    <h3 style={{ marginLeft: '2rem' }}>Aryan</h3>
                 </div>
                 <div className={classes.requestsDiv}>
                     <img className={classes.teamImage} src={profile3} alt="pro"></img>
-                    <h3 style={{marginLeft:'2rem'}}>Aryan</h3>
+                    <h3 style={{ marginLeft: '2rem' }}>Aryan</h3>
                 </div>
                 <div className={classes.requestsDiv}>
                     <img className={classes.teamImage} src={profile3} alt="pro"></img>
-                    <h3 style={{marginLeft:'2rem'}}>Aryan</h3>
+                    <h3 style={{ marginLeft: '2rem' }}>Aryan</h3>
                 </div>
             </div>
         </div >
