@@ -6,13 +6,18 @@ import background from '../../Assets/chatsbackground.png'
 import tempback from '../../Assets/back2.png'
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-
+import Bulb from '../../Assets/bulb.png'
+import Pencil from '../../Assets/pencil.png'
+import News from '../../Assets/news.png'
 export default function Home() {
   return (
     <div >
       {/* <h1 style={{ color: "black" }}>Home</h1>
       <Button name="login" to="login"></Button>
       <Button name="mentor-profile" to="mentor-profile"></Button> */}
+      <div style={{top:'70%',left:'25%'}} className={classes.tempimages}><img src={Bulb} alt="bulb"></img></div>
+      <div style={{top:'80%',left:'10%'}} className={classes.tempimages}><img src={Pencil} alt="bulb"></img></div>
+      <div style={{top:'60%',left:'40%'}} className={classes.tempimages}><img src={News} alt="bulb"></img></div>
       <div className={classes.landingDiv}>
         <div className={classes.landingLeftDiv}>
           <h1><span>MENTORING AND HELPING</span> EACH OTHER TO LEARN NEW SKILLS</h1>

@@ -22,6 +22,8 @@ export const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+  font-weight:600;
+  font-family: 'DM Sans', sans-serif;
   &:hover{
     color:#FFF38C;
   }
@@ -86,7 +88,8 @@ export const NavBtnLink = styled(Link)`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-
+  font-weight:600;
+  font-family: 'DM Sans', sans-serif;
   /* Second Nav */
   margin-left: 24px;
 
