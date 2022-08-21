@@ -7,7 +7,7 @@ function Button(props) {
     <div>
       {/* <Link to={props.to?} style={{textDecoration:'none'}}> */}
       <div className={classes.wrapper} style={{ cursor: 'pointer'}}>
-        <div className={classes.cta} >
+        <div className={classes.cta} style={{ backgroundColor:`${props.color}`}}>
           <span>{props.name}</span>
           <span>
             <svg width="66px" height="23px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
