@@ -32,7 +32,7 @@ export default function App() {
         <Route exact path="/profile/mentor/:mail" element={<MentorProfile />} />
         <Route exact path="/profile/mentee/:mail" element={<MenteeProfile />} />
         <Route exact path="/room/:mail" element={<Room />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     </div>
   )
