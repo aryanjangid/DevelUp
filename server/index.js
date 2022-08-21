@@ -333,6 +333,21 @@ app.post('/room/:roomId', async (req, res) => {
     }
 })
 
+app.get('/rooms', async (req, res) => {
+    try {
+        const mentors = await Mentor.find()
+        console.log(mentors);
+        let rooms = [];
+        mentors.map(mentor => {
+            // console.log(mentor.rooms);
+            rooms.push(...mentor.rooms)
+        })
+        return res.json({ status: 'ok', rooms: rooms })
+    } catch (error) {
+        res.json({ status: 'error', error })
+    }
+})
+
 app.listen(4000, () => {
     console.log('Server started on 4000')
 })

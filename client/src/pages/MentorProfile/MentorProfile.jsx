@@ -24,6 +24,7 @@ export default function MentorProfile() {
     const [newRoomName, setNewRoomName] = useState('')
 
     const [rooms, setRooms] = useState([])
+    const [newDesp, setNewDesp] = useState('')
 
     let { mail } = useParams()
 
@@ -81,7 +82,8 @@ export default function MentorProfile() {
         const uid = uuid()
         const newRoom = {
             name: newRoomName,
-            roomId: uid
+            roomId: uid,
+            desp: newDesp
         }
         e.preventDefault()
         await fetch(`http://localhost:4000/mentor/${mail}`, {
@@ -103,10 +105,10 @@ export default function MentorProfile() {
             body: JSON.stringify({
                 email: mail,
                 roomId: uid,
-                name: newRoomName
+                name: newRoomName,
+                desp: newDesp
             })
-        })
-        setRooms([...rooms, newRoom])
+        }).then(() => setRooms([...rooms, newRoom])).then(() => console.log(rooms))
     }
 
     return (
@@ -204,16 +206,17 @@ export default function MentorProfile() {
                         }
                     </div>
                     <div className={classes.basicDetails}>
-                        <div className={classes.iconDiv} style={{marginBottom: "2rem" }}  >
-                            <div><i style={{ marginRight: '1rem',height:'1.8rem', backgroundColor: '#ffc23c', padding:'1rem' }} className="fa-solid fa-people-roof" /></div>
+                        <div className={classes.iconDiv} style={{ marginBottom: "2rem" }}  >
+                            <div><i style={{ marginRight: '1rem', height: '1.8rem', backgroundColor: '#ffc23c', padding: '1rem' }} className="fa-solid fa-people-roof" /></div>
                             <div ><h1 style={{ color: '#050038' }} >Your Rooms</h1></div>
                         </div>
                         {rooms.map((room, index) => {
-                            return <div className={classes.roomDiv} style={{ marginLeft: "0" }} key={index}><h3>{room.name}</h3><div className={classes.viewRoomButton}>View</div></div>
+                            return <div className={classes.roomDiv} style={{ marginLeft: "0" }} key={index}><h3>{room.name}</h3><div className={classes.viewRoomButton} onClick={() => { navigate(`/room/${localStorage.getItem('email')}`) }}>View</div></div>
                         })}
                         {createRoom === false ? <div style={{ backgroundColor: '#4262ff', marginTop: "2rem" }} className={classes.editButton} onClick={() => setCreateRoom(true)}><h1>Create room</h1></div> :
                             (<>
                                 <input style={{ width: '80%', marginLeft: '0' }} className="inputBox" placeholder='Room Name' onChange={(e) => setNewRoomName(e.target.value)} value={newRoomName} ></input>
+                                <input style={{ width: '80%', marginLeft: '0' }} className="inputBox" placeholder='Room Description' onChange={(e) => setNewDesp(e.target.value)} value={newDesp} ></input>
                                 <div style={{ backgroundColor: 'green', marginTop: "2rem" }} className={classes.editButton} onClick={createNewRoom}><h1>Save room</h1></div>
                             </>)}
                     </div>
