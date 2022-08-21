@@ -45,7 +45,7 @@ export default function Search() {
                 }}></div>
                 <div className={classes.cardImageDiv}><img className={classes.cardImage} src={profile1} alt="Profile" /></div>
                 <div className={classes.cardName}><h1>{user.name}</h1></div>
-                <h3 style={{ margin: "2rem", marginBottom: '0rem' }}>Skills</h3>
+                <h3 style={{ margin: "2rem", marginBottom: '0rem',color:'#277BC0' }}>Skills</h3>
                 <div className={classes.skillsDiv}>
                     {user.skills.map(skill => {
                         return <h3 className={classes.skill}>{skill}</h3>

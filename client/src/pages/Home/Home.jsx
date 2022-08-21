@@ -3,7 +3,7 @@ import Button from '../../components/Button'
 import classes from './home.module.css'
 import Model from '../../components/Models/Team';
 import background from '../../Assets/chatsbackground.png'
-import tempback from '../../Assets/tempback.png'
+import tempback from '../../Assets/back2.png'
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
@@ -17,7 +17,7 @@ export default function Home() {
         <div className={classes.landingLeftDiv}>
           <h1><span>MENTORING AND HELPING</span> EACH OTHER TO LEARN NEW SKILLS</h1>
           <h2 >We are building a robust and influential network that will assist juniors in connecting with and learning from their mentors </h2>
-          <div style={{ marginTop: "3rem" }}><Button color="#a351ae" center="1" name="Explore" to="/search"></Button></div>
+          <div style={{ marginTop: "3rem" }}><Button color="#4262ff" center="1" name="Explore" to="/search"></Button></div>
         </div>
         <div className={classes.threejsDiv}>
           <Canvas>
@@ -36,7 +36,7 @@ export default function Home() {
 
 
       <div className={classes.secondDiv} style={{
-      backgroundImage: `url(${tempback})`, height: "fitContent"}}>
+      backgroundImage: `url(${tempback})`, height: "fitContent", backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}>
         <div className={classes.nextDivs}>
           <h1>Want to <span>learn new skill</span></h1>
           <h3>Our secondary goal is to build a strong mentoring relationship between our seasoned seniors and juniors</h3>

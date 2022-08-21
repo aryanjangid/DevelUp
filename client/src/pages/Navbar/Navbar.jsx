@@ -24,7 +24,7 @@ const Navbar = () => {
             }}>
                 <NavLink to='/'>
                     <img style={{ width: "3rem", height: "3rem" }} src={logo} alt='logo' />
-                    <h1 style={{ marginBottom: "2rem", margin: "auto", marginLeft: "1rem" }}>DevelUp</h1>
+                    <h1 style={{ marginBottom: "2rem", margin: "auto", marginLeft: "1rem",color: "white" }}>DevelUp</h1>
 
                 </NavLink>
                 <Bars />
