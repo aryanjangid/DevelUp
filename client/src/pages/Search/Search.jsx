@@ -12,7 +12,7 @@ import profile7 from '../../Assets/profile7.png'
 import profile8 from '../../Assets/profile8.png'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
-
+import { motion } from "framer-motion"
 import { useNavigate } from 'react-router-dom'
 
 export default function Search() {
@@ -86,7 +86,10 @@ export default function Search() {
                 backgroundImage: `url(${background})`, height: "30vh", width: "100wh",
             }}  >
             </div>
-            <div className={classes.searchOuterDiv}>
+            <motion.div 
+            initial={{x:-570,y:-100,opacity:0,scale:0.5}}
+            animate={{x:-570,y:-180,opacity:1,scale:1}}
+            className={classes.searchOuterDiv}>
                 <h1 style={{ color: '#A2B5BB', marginTop: '2rem' }}>Search what skill you want</h1>
                 <div className={classes.searchDiv}>
                     {/* <input placeholder='react, cpp ......' onChange={(e) => setQuery(e.target.value)} value={query}></input>
@@ -96,10 +99,11 @@ export default function Search() {
                     <input style={{ width: '60%' }} className='inputBox' placeholder='react, cpp ......' onChange={(e) => setQuery(e.target.value)} value={query}></input>
                     <div style={{ width: "20%", positions: 'relative' }} onClick={search}><Button name="Find People"></Button></div>
                 </div>
-            </div>
+            </motion.div>
             <div >
                 <h1 style={{ display: 'block', fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Mentor</h1>
                 <div className={classes.cardsDiv}>
+                    <h1 style={{ display: 'block', fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Mentor</h1>
                     {mentorResponse && mentorResponse.map(resp => {
                         return <Card user={resp} />
                     })}

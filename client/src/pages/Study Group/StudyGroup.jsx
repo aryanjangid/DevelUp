@@ -11,7 +11,7 @@ import profile7 from '../../Assets/profile7.png'
 import profile8 from '../../Assets/profile8.png'
 import Button from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
-
+import { motion } from 'framer-motion'
 export default function StudyGroup() {
 
   const profilePhotos = [profile1, profile2, profile3, profile4, profile5, profile6, profile7, profile8];
@@ -65,7 +65,9 @@ export default function StudyGroup() {
       backgroundImage: `url(${background})`, height: 'fitContent', padding: '2rem', minHeight: '100vh'
     }}>
       <h1 style={{ fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Study Groups</h1>
-      <div className={classes.studyGroupDiv}>
+      <motion.div
+        initial={{ y: -10, opacity: 0, scale: 0.5 }}
+        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }} className={classes.studyGroupDiv}>
         <h1 style={{ color: '#A2B5BB', marginTop: '2rem' }}> Search Your favorite group here</h1>
         <div className={classes.searchDiv}>
           <input style={{ width: '60%' }} className='inputBox' placeholder='Codery...'></input>
@@ -76,7 +78,7 @@ export default function StudyGroup() {
             return <Studygrp room={room} />
           })}
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

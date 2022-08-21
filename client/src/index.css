@@ -21,6 +21,7 @@
 
 html{
   scroll-behavior: smooth;
+  
 }
 body {
   margin: 0;
@@ -32,6 +33,7 @@ body {
   background-color: white;
   color:#2C3333 ;
   scroll-behavior: smooth;
+  overflow-x:hidden;
 }
 
 code {

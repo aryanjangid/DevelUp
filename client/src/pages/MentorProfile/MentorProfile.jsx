@@ -6,6 +6,7 @@ import { v4 as uuid } from "uuid";
 import { Blender } from '../../components/Models/Blender';
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { motion } from 'framer-motion';
 export default function MentorProfile() {
     const [action1, setAction1] = useState("aryan");
 
@@ -127,8 +128,9 @@ export default function MentorProfile() {
                         </Suspense>
                     </Canvas>
                 </div>
-                <div className={classes.profileRightdiv}>
-                    <div className={classes.basicDetails}>
+                <motion.div   className={classes.profileRightdiv}>
+                    <motion.div initial={{ y: -10, opacity: 0, scale: 0.5 }}
+                        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }} transition={{duration:0.2,ease:'easeOut'}} className={classes.basicDetails}>
                         <h1 style={{ color: '#6225E6', fontSize: '1.4rem', marginBottom: '1rem' }}>Hey! Mentor</h1>
                         <h1>{name}</h1>
                         <h3 style={{ margin: '1rem 0' }}><span>Email: </span>{email}</h3>
@@ -187,8 +189,9 @@ export default function MentorProfile() {
                             <></>
                         }
 
-                    </div>
-                    <div className={classes.basicDetails}>
+                    </motion.div>
+                    <motion.div initial={{ y: -10, opacity: 0, scale: 0.5 }}
+                        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }} transition={{duration:0.4,ease:'easeOut'}} className={classes.basicDetails}>
                         <div className={classes.iconDiv} >
                             <div><i style={{ marginRight: '1rem', backgroundColor: '#f24e1e' }} className="fa-solid fa-user" /></div>
                             <div ><h1 style={{ color: '#050038' }} >Bio</h1></div>
@@ -204,8 +207,9 @@ export default function MentorProfile() {
                             :
                             <></>
                         }
-                    </div>
-                    <div className={classes.basicDetails}>
+                    </motion.div>
+                    <motion.div initial={{ y: -10, opacity: 0, scale: 0.5 }}
+                        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }} transition={{duration:0.2,ease:'easeOut'}} className={classes.basicDetails}>
                         <div className={classes.iconDiv} style={{ marginBottom: "2rem" }}  >
                             <div><i style={{ marginRight: '1rem', height: '1.8rem', backgroundColor: '#ffc23c', padding: '1rem' }} className="fa-solid fa-people-roof" /></div>
                             <div ><h1 style={{ color: '#050038' }} >Your Rooms</h1></div>
@@ -219,9 +223,9 @@ export default function MentorProfile() {
                                 <input style={{ width: '80%', marginLeft: '0' }} className="inputBox" placeholder='Room Description' onChange={(e) => setNewDesp(e.target.value)} value={newDesp} ></input>
                                 <div style={{ backgroundColor: 'green', marginTop: "2rem" }} className={classes.editButton} onClick={createNewRoom}><h1>Save room</h1></div>
                             </>)}
-                    </div>
+                    </motion.div>
 
-                </div>
+                </motion.div>
 
             </div>
 

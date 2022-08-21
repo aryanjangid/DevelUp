@@ -13,12 +13,14 @@ import StudyGroup from "./pages/Study Group/StudyGroup";
 import Navbar from "./pages/Navbar/Navbar";
 import Form from "./pages/Form/Form";
 import MenteeProfile from "./pages/MenteeProfile/MenteeProfile";
+import { MyComponent } from "./components/loading";
 // import { Model } from "./components/Models/Blender";
 export default function App() {
   // const [action1, setAction1] = useState("aryan");
 
   return (
     <div>
+      
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -34,6 +36,7 @@ export default function App() {
         <Route exact path="/room/:mail" element={<Room />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <MyComponent></MyComponent>
     </div>
   )
 }
