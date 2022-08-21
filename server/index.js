@@ -336,10 +336,22 @@ app.post('/requests', async (req, res) => {
     const roomId = req.body.roomId
     try {
         const chatRoom = await ChatRoom.find({ roomId: roomId })
-        const lol = await ChatRoom.updateOne(
-            { roomId: roomId },
-            { $set: { messages: [...chatRoom[0].request, request] } }
-        )
+        console.log(roomId)
+        console.log(chatRoom);
+        let lol;
+        if (chatRoom[0]?.request !== undefined) {
+            console.log('nice')
+            lol = await ChatRoom.updateOne(
+                { roomId: roomId },
+                { $set: { requests: [...chatRoom[0].request, request] } }
+            )
+        }
+        else {
+            lol = await ChatRoom.updateOne(
+                { roomId: roomId },
+                { $set: { requests: [request] } }
+            )
+        }
         return res.json({ status: 'ok', lol })
 
     } catch (error) {

@@ -14,9 +14,7 @@ const ChatRoom = new mongoose.Schema(
         roomId: { type: String, required: true },
         email: { type: String, required: true, unique: true },
         messages: [Message],
-        requests: [{
-            name: { type: String, required: true },
-        }]
+        requests: []
     },
     { timestamps: true }
 )

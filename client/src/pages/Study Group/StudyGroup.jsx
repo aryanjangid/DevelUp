@@ -23,7 +23,7 @@ export default function StudyGroup() {
 
   useEffect(() => {
     fetch(`http://localhost:4000/rooms`).then(data => data.json()).then(data => { setRooms(data.rooms) })
-  })
+  }, [])
 
   const navigate = useNavigate()
 
@@ -38,12 +38,12 @@ export default function StudyGroup() {
       },
       body: JSON.stringify({
         request: localStorage.getItem('name'),
-        rooId: room.roomId
+        roomId: room.roomId
       }),
     }).then(data => data.json()).then(data => console.log(data))
   }
 
-  const Studygrp = ({ room }) => {
+  const Studygrp = ({ room, index }) => {
     return (
       <div className={classes.studyGroup}>
         <div className={classes.groupDiv}>
@@ -55,14 +55,14 @@ export default function StudyGroup() {
             send request
           </div>
         </div>
-        <h3 style={{ paddingTop: '2rem', textAlign: 'left' }}>Learning and refining competitive programming to crack interviews better and improve critical thinking.</h3>
+        <h3 style={{ paddingTop: '2rem', textAlign: 'left' }}></h3>
       </div >
     )
   }
 
   return (
     <div style={{
-      backgroundImage: `url(${background})`, height: 'fitContent', padding: '2rem',minHeight:'100vh'
+      backgroundImage: `url(${background})`, height: 'fitContent', padding: '2rem', minHeight: '100vh'
     }}>
       <h1 style={{ fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Study Groups</h1>
       <motion.div

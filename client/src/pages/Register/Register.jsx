@@ -43,7 +43,7 @@ export default function Login() {
             localStorage.setItem('email', email)
             localStorage.setItem('name', name)
             localStorage.setItem("user", `${selectedOption}`)
-            navigate('/home')
+            window.location.href = '/'
         }
     }
     return (
@@ -51,12 +51,9 @@ export default function Login() {
             backgroundImage: `url(${background})`, minHeight: '100vh', height: "fitContent", backgroundRepeat: 'no-repeat', width: "100wh", backgroundSize: 'cover',
         }}  >
             {/* <h1 style={{ marginBottom: "2rem" }}>DevelUp</h1> */}
-            <motion.div
-                initial={{ y: -10, opacity: 0, scale: 0.5 }}
-                animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-                className={classes.loginBox}>
-                <h1 style={{ marginBottom: "2rem", color: '#A2B5BB' }}>Register to DevelUp</h1>
-                <h3 style={{ marginBottom: "2rem", color: '#277BC0' }}>Choose an options</h3>
+            <div className={classes.loginBox}>
+                <h1 style={{ marginBottom: "2rem" ,color:'#A2B5BB'}}>Register to DevelUp</h1>
+                <h3 style={{ marginBottom: "2rem",color:'#277BC0'}}>Choose an options</h3>
                 <div style={{ marginBottom: "2rem" }} className={classes.selectoption}>
                     <motion.div whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}

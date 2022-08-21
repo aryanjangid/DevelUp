@@ -101,6 +101,7 @@ export default function Search() {
                 </div>
             </motion.div>
             <div >
+                <h1 style={{ display: 'block', fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Mentor</h1>
                 <div className={classes.cardsDiv}>
                     <h1 style={{ display: 'block', fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Mentor</h1>
                     {mentorResponse && mentorResponse.map(resp => {

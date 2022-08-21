@@ -35,7 +35,7 @@ const Navbar = () => {
                         </div>
                     </NavLink> */}
                     <NavLink to='/search' activeStyle>
-                        Skill Search
+                        Search Skills
                     </NavLink>
                     <NavLink to='/studygroups' activeStyle>
                         Study Groups
