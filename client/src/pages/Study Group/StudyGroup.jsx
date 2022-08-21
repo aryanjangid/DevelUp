@@ -9,6 +9,7 @@ import profile5 from '../../Assets/profile5.png'
 import profile6 from '../../Assets/profile6.png'
 import profile7 from '../../Assets/profile7.png'
 import profile8 from '../../Assets/profile8.png'
+import Button from '../../components/Button'
 
 export default function StudyGroup() {
 
@@ -20,12 +21,12 @@ export default function StudyGroup() {
     <div style={{
       backgroundImage: `url(${background})`, height: 'fitContent', padding: '2rem'
     }}>
-      <h1 style={{ textAlign: 'center', padding: "2rem" }}>Study Groups</h1>
+      <h1 style={{fontSize:'3rem', textAlign: 'center', padding: "2rem" ,paddingTop:"5.2rem" ,color:'#277BC0'}}>Study Groups</h1>
       <div className={classes.studyGroupDiv}>
-        <h1> Search Your favorite group here</h1>
+        <h1 style={{color:'#A2B5BB', marginTop:'2rem'}}> Search Your favorite group here</h1>
         <div className={classes.searchDiv}>
-          <input style={{ width: '70%' }} className='inputBox' placeholder='Codery...'></input>
-          <div> Search</div>
+          <input style={{ width: '60%' }} className='inputBox' placeholder='Codery...'></input>
+          <div style={{width:"20%"}}><Button name="Search"></Button></div>
         </div>
         <div className={classes.allGroups}>
           <div className={classes.studyGroup}>
