@@ -30,7 +30,7 @@ export default function MenteeProfile() {
     const navigate = useNavigate()
 
     const getData = async () => {
-        const req = await fetch(`http://localhost:4000/mentor/${mail}`)
+        const req = await fetch(`http://localhost:4000/mentee/${mail}`)
         const mentor = await req.json()
         if (mentor['mentor'][0]) {
             console.log(mentor['mentor'][0])
@@ -55,7 +55,7 @@ export default function MenteeProfile() {
 
     const update = async (e) => {
         e.preventDefault()
-        const req = await fetch(`http://localhost:4000/mentor/${mail}`, {
+        const req = await fetch(`http://localhost:4000/mentee/${mail}`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
@@ -204,14 +204,14 @@ export default function MenteeProfile() {
                         }
                     </div>
                     <div className={classes.basicDetails}>
-                        <div className={classes.iconDiv} style={{marginBottom: "2rem" }}  >
-                            <div><i style={{ marginRight: '1rem',height:'1.8rem', backgroundColor: '#ffc23c', padding:'1rem' }} className="fa-solid fa-people-roof" /></div>
+                        <div className={classes.iconDiv} style={{ marginBottom: "2rem" }}  >
+                            <div><i style={{ marginRight: '1rem', height: '1.8rem', backgroundColor: '#ffc23c', padding: '1rem' }} className="fa-solid fa-people-roof" /></div>
                             <div ><h1 style={{ color: '#050038' }} >Your Rooms</h1></div>
                         </div>
                         {rooms.map((room, index) => {
                             return <div className={classes.roomDiv} style={{ marginLeft: "0" }} key={index}><h3>{room.name}</h3><div className={classes.viewRoomButton}>View</div></div>
                         })}
-                        {createRoom === false ? <div style={{ backgroundColor: '#4262ff', marginTop: "2rem" , display: 'none'}} className={classes.editButton} onClick={() => setCreateRoom(true)}><h1>Create room</h1></div> :
+                        {createRoom === false ? <div style={{ backgroundColor: '#4262ff', marginTop: "2rem", display: 'none' }} className={classes.editButton} onClick={() => setCreateRoom(true)}><h1>Create room</h1></div> :
                             (<>
                                 <input style={{ width: '80%', marginLeft: '0' }} className="inputBox" placeholder='Room Name' onChange={(e) => setNewRoomName(e.target.value)} value={newRoomName} ></input>
                                 <div style={{ backgroundColor: 'green', marginTop: "2rem" }} className={classes.editButton} onClick={createNewRoom}><h1>Save room</h1></div>

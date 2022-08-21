@@ -29,7 +29,8 @@ export default function App() {
         <Route exact path="/form" element={<Form />} />
         <Route exact path="/profile/mentee" element={<MenteeProfile />} />
         <Route exact path="/studygroups" element={<StudyGroup />} />
-        <Route exact path="/profile/:mail" element={<MentorProfile />} />
+        <Route exact path="/profile/mentor/:mail" element={<MentorProfile />} />
+        <Route exact path="/profile/mentee/:mail" element={<MenteeProfile />} />
         <Route exact path="/room/:mail" element={<Room />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

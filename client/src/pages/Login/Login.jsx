@@ -42,6 +42,7 @@ export default function Login() {
     if (data) {
       localStorage.setItem('email', email)
       localStorage.setItem('name', data.name)
+      localStorage.setItem('user', `${user}`)
       alert('Login successful')
       window.location.href = '/'
     } else {
