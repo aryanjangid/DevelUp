@@ -4,7 +4,8 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding:5rem;
+    padding-top:10rem;
+    padding-bottom: 5rem;
 }
 
 .loginBox {
