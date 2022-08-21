@@ -94,7 +94,8 @@ app.post('/mentor/:mail', async (req, res) => {
     }
 })
 
-app.post('/mentor/register', async (req, res) => {
+app.post('/auth/mentor/register', async (req, res) => {
+    console.log('nice');
     try {
         const newPassword = await bcrypt.hash(req.body.password, 10)
         await Mentor.create({
@@ -103,13 +104,15 @@ app.post('/mentor/register', async (req, res) => {
             password: newPassword,
             skills: req.body.skills
         })
-        res.json({ status: 'ok' })
+
+        res.json({ status: 'ok', msg: "done" })
     } catch (err) {
         res.json({ status: 'error', error: 'Duplicate email' })
     }
 })
 
-app.post('/mentee/register', async (req, res) => {
+app.post('/auth/mentee/register', async (req, res) => {
+    console.log('nice');
     try {
         const newPassword = await bcrypt.hash(req.body.password, 10)
         await Mentee.create({
@@ -123,7 +126,7 @@ app.post('/mentee/register', async (req, res) => {
     }
 })
 
-app.post('/mentor/login', async (req, res) => {
+app.post('/auth/mentor/login', async (req, res) => {
     const mentor = await Mentor.findOne({
         email: req.body.email,
     })
@@ -151,7 +154,7 @@ app.post('/mentor/login', async (req, res) => {
     }
 })
 
-app.post('/mentee/login', async (req, res) => {
+app.post('/auth/mentee/login', async (req, res) => {
     const mentee = await Mentee.findOne({
         email: req.body.email,
     })

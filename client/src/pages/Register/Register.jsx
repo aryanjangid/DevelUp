@@ -24,7 +24,7 @@ export default function Login() {
 
     const RegisterUser = async () => {
         const user = selectedOption === "mentor" ? "mentor" : "mentee";
-        const response = await fetch(`http://localhost:4000/${user}/register`, {
+        const response = await fetch(`http://localhost:4000/auth/${user}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,9 +38,11 @@ export default function Login() {
         })
 
         const data = await response.json()
+        console.log(data)
         if (data.status === 'ok') {
             localStorage.setItem('email', email)
             localStorage.setItem('name', name)
+            localStorage.setItem("user", `${selectedOption}`)
             navigate('/home')
         }
     }
@@ -79,7 +81,7 @@ export default function Login() {
                 </form>
                 {
                     selectedOption === "mentor" ?
-                        <div onClick={RegisterUser} style={{ marginTop: '20px',display:'flex', justifyContent: 'center' }} ><Button name="Register as Mentor" ></Button></div> : <div onClick={RegisterUser} style={{display:'flex', justifyContent: 'center'}}><Button name="Register as Mentee" to="/"></Button></div>
+                        <div onClick={RegisterUser} style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }} ><Button name="Register as Mentor" ></Button></div> : <div onClick={RegisterUser} style={{ display: 'flex', justifyContent: 'center' }}><Button name="Register as Mentee" to="/"></Button></div>
                 }
                 <h3 style={{ marginTop: "2rem" }}>Already a member? <span onClick={() => navigate('/login')} style={{ color: "#FFC23C", cursor: "pointer" }}>LogIn</span></h3>
             </div >
