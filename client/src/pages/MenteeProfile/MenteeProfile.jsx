@@ -130,7 +130,7 @@ export default function MenteeProfile() {
                         <h1 style={{ color: '#6225E6', fontSize: '1.4rem', marginBottom: '1rem' }}>Hey! Mentee</h1>
                         <h1>{name}</h1>
                         <h3 style={{ margin: '1rem 0' }}><span>Email: </span>{email}</h3>
-                        <h3><span>Favourite Skills: </span>{email}</h3>
+                        {/* <h3><span>Favourite Skills: </span>{email}</h3> */}
                         <div>
                             <div style={{ marginTop: "2rem", marginBottom: "2rem" }} className={classes.wrapper}>
                                 {facebook !== '' ? <a href={facebook} target="_blank" rel="noreferrer" style={{ color: "#4267b2" }}>

@@ -76,6 +76,7 @@
 }
 .teamDetails{
     display: flex;
+    align-items: center;
 }
 .teamDetailDiv{
     padding: 1rem ;
@@ -134,4 +135,28 @@
     color: white;
     border-radius: 10px;
 
+}
+.requestsDashboard{
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+.requestsDiv{
+    /* width: 30%; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    margin:2rem;
+    display: flex;
+    align-items: center;
+}
+.requests{
+    margin-left:2rem;
+    font-size: 3rem;
 }

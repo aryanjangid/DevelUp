@@ -14,7 +14,6 @@ import Navbar from "./pages/Navbar/Navbar";
 import Form from "./pages/Form/Form";
 import MenteeProfile from "./pages/MenteeProfile/MenteeProfile";
 // import { Model } from "./components/Models/Blender";
-
 export default function App() {
   // const [action1, setAction1] = useState("aryan");
 
@@ -29,6 +28,7 @@ export default function App() {
         <Route exact path="/form" element={<Form />} />
         <Route exact path="/profile/mentee" element={<MenteeProfile />} />
         <Route exact path="/studygroups" element={<StudyGroup />} />
+        <Route exact path="/room" element={<Room />} />
         <Route exact path="/profile/mentor/:mail" element={<MentorProfile />} />
         <Route exact path="/profile/mentee/:mail" element={<MenteeProfile />} />
         <Route exact path="/room/:mail" element={<Room />} />
