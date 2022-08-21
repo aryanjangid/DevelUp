@@ -56,8 +56,8 @@ export default function Login() {
     }}  >
       {/* <h1 style={{ marginBottom: "2rem" }}>DevelUp</h1> */}
       <div className={classes.loginBox}>
-        <h1 style={{ marginBottom: "2rem" }}>Login to DevelUp</h1>
-        <h3 style={{ marginBottom: "2rem" }}>Choose an options</h3>
+        <h1 style={{ marginBottom: "2rem",color:'#A2B5BB' }}>Login to DevelUp</h1>
+        <h3 style={{ marginBottom: "2rem" ,color:'#277BC0'}}>Choose an options</h3>
         <div style={{ marginBottom: "2rem" }} className={classes.selectoption}>
           <div style={{ backgroundColor: `${selectedOption === "mentor" ? "#FFC23C" : "#A5C9CA"}` }} onClick={() => setSelectedOption("mentor")}><h1>Mentor</h1></div>
           <div style={{ backgroundColor: `${selectedOption === "mentee" ? "#FFC23C" : "#A5C9CA"}` }} onClick={() => setSelectedOption("mentee")}><h1>Mentee</h1></div>
