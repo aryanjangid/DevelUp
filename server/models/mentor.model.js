@@ -22,7 +22,7 @@ const Mentor = new mongoose.Schema(
         github: { type: String },
     },
     { collection: 'mentor-data' },
-    {timestamps:true}
+    { timestamps: true }
 )
 
 const model = mongoose.model('MentorData', Mentor)

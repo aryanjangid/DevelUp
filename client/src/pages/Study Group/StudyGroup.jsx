@@ -10,6 +10,7 @@ import profile6 from '../../Assets/profile6.png'
 import profile7 from '../../Assets/profile7.png'
 import profile8 from '../../Assets/profile8.png'
 import Button from '../../components/Button'
+import { useNavigate } from 'react-router-dom'
 
 export default function StudyGroup() {
 
@@ -24,6 +25,24 @@ export default function StudyGroup() {
     fetch(`http://localhost:4000/rooms`).then(data => data.json()).then(data => { setRooms(data.rooms) })
   })
 
+  const navigate = useNavigate()
+
+  const sendRequest = (room) => {
+    const request = {
+
+    }
+    fetch(`http://localhost:4000/requests/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        request: localStorage.getItem('name'),
+        rooId: room.roomId
+      }),
+    }).then(data => data.json()).then(data => console.log(data))
+  }
+
   const Studygrp = ({ room }) => {
     return (
       <div className={classes.studyGroup}>
@@ -32,12 +51,12 @@ export default function StudyGroup() {
             <img className={classes.studyGroupImg} src={profilePhotos[giveRandom()]} alt="profile"></img>
             <h3 style={{ marginLeft: '1rem', fontSize: '1.4rem' }}>{room.name}</h3>
           </div>
-          <div className={classes.viewButton}>
-            View Group
+          <div className={classes.viewButton} onClick={() => { sendRequest(room); alert('request sent') }}>
+            send request
           </div>
         </div>
         <h3 style={{ paddingTop: '2rem', textAlign: 'left' }}>Learning and refining competitive programming to crack interviews better and improve critical thinking.</h3>
-      </div>
+      </div >
     )
   }
 
