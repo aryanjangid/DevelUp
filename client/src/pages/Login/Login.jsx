@@ -26,7 +26,7 @@ export default function Login() {
       password = menteePassword
       user = "mentee"
     }
-    const response = await fetch(`http://localhost:4000/${user}/login`, {
+    const response = await fetch(`http://localhost:4000/auth/${user}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -65,13 +65,13 @@ export default function Login() {
           <from action="" >
             <input className="inputBox" type="email" id="email" name="email" placeholder='Email Id' onChange={(e) => setMentorEmail(e.target.value)} value={mentorEmail} />
             <input style={{ marginBottom: "3rem" }} className="inputBox" type="password" id="password" name="password" placeholder='Password' onChange={(e) => setMentorPassword(e.target.value)} value={mentorPassword} />
-            <div onClick={loginUser} style={{display:'flex', justifyContent: 'center'}}><Button name="Login as Mentor" to="/" ></Button></div>
+            <div onClick={loginUser} style={{ display: 'flex', justifyContent: 'center' }}><Button name="Login as Mentor" to="/" ></Button></div>
           </from>
           :
           <from action="">
             <input className="inputBox" type="email" id="email" name="email" placeholder='Email Id' onChange={(e) => setMenteeEmail(e.target.value)} value={menteeEmail} />
             <input style={{ marginBottom: "3rem" }} className="inputBox" type="password" id="password" name="password" placeholder='Password' onChange={(e) => setMenteePassword(e.target.value)} value={menteePassword} />
-            <div onClick={loginUser} style={{display:'flex', justifyContent: 'center'}}><Button  name="Login as Mentee" to="/"></Button></div>
+            <div onClick={loginUser} style={{ display: 'flex', justifyContent: 'center' }}><Button name="Login as Mentee" to="/"></Button></div>
           </from>
         }
         <h3 style={{ marginTop: "3rem" }}>New here? <span onClick={() => navigate('/register')} style={{ color: "#FFC23C", cursor: "pointer" }}>Register</span></h3>
