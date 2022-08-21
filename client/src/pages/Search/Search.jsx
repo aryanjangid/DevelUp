@@ -83,7 +83,7 @@ export default function Search() {
     return (
         <div className={classes.outerDiv}>
             <div className={classes.backgroundDiv} style={{
-                backgroundImage: `url(${background})`, height: "30vh", width: "100wh"
+                backgroundImage: `url(${background})`, height: "30vh", width: "100wh", 
             }}  >
             </div>
             <div className={classes.searchOuterDiv}>

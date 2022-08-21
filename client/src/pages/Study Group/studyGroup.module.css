@@ -13,13 +13,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
+    margin: 0rem;
 }
 .searchDiv div{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1da1f2;
+    /* background-color: #1da1f2; */
     padding:1rem 4rem;
     border-radius: 10px;
     color: white;
@@ -33,7 +33,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding:2rem;
     margin:1rem;
-
+    border-radius: 10px;
 }
 .groupDiv{
     display: flex;
