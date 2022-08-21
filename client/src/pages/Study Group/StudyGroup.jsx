@@ -43,7 +43,7 @@ export default function StudyGroup() {
 
   return (
     <div style={{
-      backgroundImage: `url(${background})`, height: 'fitContent', padding: '2rem'
+      backgroundImage: `url(${background})`, height: 'fitContent', padding: '2rem',minHeight:'100vh'
     }}>
       <h1 style={{ fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Study Groups</h1>
       <div className={classes.studyGroupDiv}>

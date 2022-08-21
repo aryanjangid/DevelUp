@@ -82,7 +82,7 @@ export default function Room() {
 
     return (
         <div className={classes.outerDiv} style={{
-            backgroundImage: `url(${chatBackground})`, height: 'fitContent'
+            backgroundImage: `url(${chatBackground})`, height: 'fitContent',minHeight:'100vh'
         }}>
             {/* <div className={classes.searchDiv}>
                 <input className={classes.searchTeamInput} placeholder="Search...."></input>

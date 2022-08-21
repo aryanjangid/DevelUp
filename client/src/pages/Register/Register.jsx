@@ -48,7 +48,7 @@ export default function Login() {
     }
     return (
         <div className={classes.loginMainDiv} style={{
-            backgroundImage: `url(${background})`, height: "fitContent", backgroundRepeat: 'no-repeat', width: "100wh", backgroundSize: 'cover',
+            backgroundImage: `url(${background})`,minHeight:'100vh', height: "fitContent", backgroundRepeat: 'no-repeat', width: "100wh", backgroundSize: 'cover',
         }}  >
             {/* <h1 style={{ marginBottom: "2rem" }}>DevelUp</h1> */}
             <div className={classes.loginBox}>
