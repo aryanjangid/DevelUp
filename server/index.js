@@ -95,7 +95,6 @@ app.post('/mentor/:mail', async (req, res) => {
 })
 
 app.post('/auth/mentor/register', async (req, res) => {
-    console.log('nice');
     try {
         const newPassword = await bcrypt.hash(req.body.password, 10)
         await Mentor.create({
@@ -112,7 +111,6 @@ app.post('/auth/mentor/register', async (req, res) => {
 })
 
 app.post('/auth/mentee/register', async (req, res) => {
-    console.log('nice');
     try {
         const newPassword = await bcrypt.hash(req.body.password, 10)
         await Mentee.create({
@@ -333,10 +331,26 @@ app.post('/room/:roomId', async (req, res) => {
     }
 })
 
+app.post('/requests', async (req, res) => {
+    const request = req.body.request
+    const roomId = req.body.roomId
+    try {
+        const chatRoom = await ChatRoom.find({ roomId: roomId })
+        const lol = await ChatRoom.updateOne(
+            { roomId: roomId },
+            { $set: { messages: [...chatRoom[0].request, request] } }
+        )
+        return res.json({ status: 'ok', lol })
+
+    } catch (error) {
+        res.json({ status: 'error', error })
+
+    }
+})
+
 app.get('/rooms', async (req, res) => {
     try {
         const mentors = await Mentor.find()
-        console.log(mentors);
         let rooms = [];
         mentors.map(mentor => {
             // console.log(mentor.rooms);

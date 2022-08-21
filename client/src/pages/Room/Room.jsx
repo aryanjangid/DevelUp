@@ -19,7 +19,7 @@ const socket = io.connect("http://localhost:5001");
 export default function Room() {
 
     const profilePhotos = [profile1, profile2, profile3, profile4, profile5, profile6, profile7, profile8];
-
+    const { roomId } = useParams()
     const [meetOption, setMeetOption] = useState("create")
     const [rooms, setRooms] = useState([])
     const [chatRoom, setChatRoom] = useState({ name: 'Select a room' })
@@ -44,13 +44,17 @@ export default function Room() {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:4000/mentor/${mail}`).then(data => data.json()).then(data => { setRooms(data['mentor'][0]['rooms']); setUser(data['mentor'][0]) })
+        fetch(`http://localhost:4000/mentor/${mail}`).then(data => data.json()).then(data => { data['mentor'][0] && setRooms(data['mentor'][0]['rooms']); setUser(data['mentor'][0]) })
         chatRoom.roomId && socket.emit("join_room", chatRoom.roomId);
     }, [])
 
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
     }, [chatRoom])
+
+    useEffect(() => {
+        fetch(`http://localhost:4000/room/${roomId}`).then(data => data.json()).then(data => console.log(data))
+    }, [])
 
     socket.on("receive_message", (data) => {
         setChatRoom([...chatRoom.messages, data.message]);
