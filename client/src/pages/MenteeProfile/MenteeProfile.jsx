@@ -31,21 +31,17 @@ export default function MenteeProfile() {
 
     const getData = async () => {
         const req = await fetch(`http://localhost:4000/mentee/${mail}`)
-        const mentor = await req.json()
-        if (mentor['mentor'][0]) {
-            console.log(mentor['mentor'][0])
-            setBio(mentor['mentor'][0].bio)
-            setFacebook(mentor['mentor'][0].facebook)
-            setInstagram(mentor['mentor'][0].instagram)
-            setTwitter(mentor['mentor'][0].twitter)
-            setGithub(mentor['mentor'][0].github)
-            setLinkedin(mentor['mentor'][0].linkedin)
-            setName(mentor['mentor'][0].name)
-            setEmail(mentor['mentor'][0].email)
-            setRooms(mentor['mentor'][0].rooms)
-        }
-        else {
-            navigate('/')
+        const mentee = await req.json()
+        if (mentee['mentee'] !== undefined) {
+            setBio(mentee['mentee'][0].bio)
+            setFacebook(mentee['mentee'][0].facebook)
+            setInstagram(mentee['mentee'][0].instagram)
+            setTwitter(mentee['mentee'][0].twitter)
+            setGithub(mentee['mentee'][0].github)
+            setLinkedin(mentee['mentee'][0].linkedin)
+            setName(mentee['mentee'][0].name)
+            setEmail(mentee['mentee'][0].email)
+            setRooms(mentee['mentee'][0].rooms)
         }
     }
 

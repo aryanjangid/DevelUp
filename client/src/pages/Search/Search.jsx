@@ -45,7 +45,7 @@ export default function Search() {
                 }}></div>
                 <div className={classes.cardImageDiv}><img className={classes.cardImage} src={profile1} alt="Profile" /></div>
                 <div className={classes.cardName}><h1>{user.name}</h1></div>
-                <h3 style={{ margin: "2rem", marginBottom: '0rem',color:'#277BC0' }}>Skills</h3>
+                <h3 style={{ margin: "2rem", marginBottom: '0rem', color: '#277BC0' }}>Skills</h3>
                 <div className={classes.skillsDiv}>
                     {user.skills.map(skill => {
                         return <h3 className={classes.skill}>{skill}</h3>
@@ -87,25 +87,25 @@ export default function Search() {
             }}  >
             </div>
             <div className={classes.searchOuterDiv}>
-                <h1 style={{color:'#A2B5BB', marginTop:'2rem'}}>Search what skill you want</h1>
+                <h1 style={{ color: '#A2B5BB', marginTop: '2rem' }}>Search what skill you want</h1>
                 <div className={classes.searchDiv}>
                     {/* <input placeholder='react, cpp ......' onChange={(e) => setQuery(e.target.value)} value={query}></input>
                     <div style={{ positions: 'relative' }} onClick={search}>
                         <Button name="Find People"></Button>
                     </div> */}
                     <input style={{ width: '60%' }} className='inputBox' placeholder='react, cpp ......' onChange={(e) => setQuery(e.target.value)} value={query}></input>
-                    <div style={{ width: "20%",positions: 'relative' }} onClick={search}><Button name="Find People"></Button></div>
+                    <div style={{ width: "20%", positions: 'relative' }} onClick={search}><Button name="Find People"></Button></div>
                 </div>
             </div>
             <div >
+                <h1 style={{ display: 'block', fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Mentor</h1>
                 <div className={classes.cardsDiv}>
-                    <h1 style={{display:'block',fontSize:'3rem', textAlign: 'center', padding: "2rem" ,paddingTop:"5.2rem" ,color:'#277BC0'}}>Mentor</h1>
                     {mentorResponse && mentorResponse.map(resp => {
                         return <Card user={resp} />
                     })}
                 </div>
                 <div className={classes.cardsDiv}>
-                    <h1 style={{display:'block',fontSize:'3rem', textAlign: 'center', padding: "2rem" ,paddingTop:"5.2rem" ,color:'#277BC0'}}>Mentees</h1>
+                    <h1 style={{ display: 'block', fontSize: '3rem', textAlign: 'center', padding: "2rem", paddingTop: "5.2rem", color: '#277BC0' }}>Mentees</h1>
                     {menteeResponse && menteeResponse.map(resp => {
                         return <Card user={resp} />
                     })}

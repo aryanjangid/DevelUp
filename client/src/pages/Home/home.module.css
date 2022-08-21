@@ -1,20 +1,22 @@
 .landingDiv{
     display: flex;
     background-color: #ffffff;
+    height:100vh
 }
 .landingLeftDiv{
     width: 50%;
     padding: 3rem;
-    padding-top: 9rem;
+    padding-top: 18rem;
+    padding-left:5rem;
 }
 .threejsDiv{
     width: 60%;
-    height: 50rem;
+    height: 100vh;
 }
 
 .landingLeftDiv h1{
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 3.5rem;
     line-height:150%
 }
 .landingLeftDiv h1 span{

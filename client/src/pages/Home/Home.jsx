@@ -19,14 +19,15 @@ export default function Home() {
       {/* <h1 style={{ color: "black" }}>Home</h1>
       <Button name="login" to="login"></Button>
       <Button name="mentor-profile" to="mentor-profile"></Button> */}
-      <div style={{top:'70%',left:'25%'}} className={classes.tempimages}><img src={Bulb} alt="bulb"></img></div>
-      <div style={{top:'80%',left:'10%'}} className={classes.tempimages}><img src={Pencil} alt="bulb"></img></div>
-      <div style={{top:'60%',left:'40%'}} className={classes.tempimages}><img src={News} alt="bulb"></img></div>
+      {/* <div style={{top:'45%',left:'25%'}} className={classes.tempimages}><img src={Bulb} alt="bulb"></img></div>
+      <div style={{top:'80%',left:'8%'}} className={classes.tempimages}><img src={Pencil} alt="bulb"></img></div>
+      <div style={{top:'10%',left:'30%'}} className={classes.tempimages}><img src={Pencil} alt="bulb"></img></div>
+      <div style={{top:'60%',left:'40%'}} className={classes.tempimages}><img src={News} alt="bulb"></img></div> */}
       <div className={classes.landingDiv}>
         <div className={classes.landingLeftDiv}>
           <h1><span>MENTORING AND HELPING</span> EACH OTHER TO LEARN NEW SKILLS</h1>
-          <h2 >We are building a robust and influential network that will assist juniors in connecting with and learning from their mentors </h2>
-          <div style={{ marginTop: "3rem" }} onClick={() => { navigate(`/search`) }}><Button color="#4262ff" center="1" name="Explore" to="/search"></Button></div>
+          <h2 style={{ marginTop: "3rem"}}>We are building a robust and influential network that will assist juniors in connecting with and learning from their mentors </h2>
+          <div style={{ marginTop: "4rem" ,width:"10rem", height:"10rem"}} onClick={() => { navigate(`/search`) }}><Button color="#4262ff" center="1" name="Explore" to="/search"></Button></div>
         </div>
         <div className={classes.threejsDiv}>
           <Canvas>

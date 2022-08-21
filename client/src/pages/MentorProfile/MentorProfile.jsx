@@ -194,7 +194,7 @@ export default function MentorProfile() {
                             <div ><h1 style={{ color: '#050038' }} >Bio</h1></div>
                         </div>
 
-                        <h3 style={{ margin: '2rem', marginLeft: '0' }}>{bio}</h3>
+                        <h3 style={{ margin: '2rem', marginLeft: '0' }}>Currently I am a sophomore pursuing Artificial Intelligence and Data Science Engineering. Building a competitive programming community. Skilled in C++, Java, Designing, Website Building, Engineering, and Front-end Development. Love to solve hard problems and building fast and scalable applications. I am also interested in Virtual Reality (VR) technologies and building that as a side project.</h3>
                         <div onClick={() => setEditBio(!editBio)} className={classes.editButton}><h1>Edit Bio</h1></div>
                         {editBio ?
                             <div>
