@@ -83,27 +83,29 @@ export default function Search() {
     return (
         <div className={classes.outerDiv}>
             <div className={classes.backgroundDiv} style={{
-                backgroundImage: `url(${background})`, height: "30vh", width: "100wh", 
+                backgroundImage: `url(${background})`, height: "30vh", width: "100wh",
             }}  >
             </div>
             <div className={classes.searchOuterDiv}>
-                <h1>Search what skill you want</h1>
+                <h1 style={{color:'#A2B5BB', marginTop:'2rem'}}>Search what skill you want</h1>
                 <div className={classes.searchDiv}>
-                    <input placeholder='react, cpp ......' onChange={(e) => setQuery(e.target.value)} value={query}></input>
+                    {/* <input placeholder='react, cpp ......' onChange={(e) => setQuery(e.target.value)} value={query}></input>
                     <div style={{ positions: 'relative' }} onClick={search}>
                         <Button name="Find People"></Button>
-                    </div>
+                    </div> */}
+                    <input style={{ width: '60%' }} className='inputBox' placeholder='react, cpp ......' onChange={(e) => setQuery(e.target.value)} value={query}></input>
+                    <div style={{ width: "20%",positions: 'relative' }} onClick={search}><Button name="Find People"></Button></div>
                 </div>
             </div>
             <div >
                 <div className={classes.cardsDiv}>
-                    <h1>Mentor</h1>
+                    <h1 style={{display:'block',fontSize:'3rem', textAlign: 'center', padding: "2rem" ,paddingTop:"5.2rem" ,color:'#277BC0'}}>Mentor</h1>
                     {mentorResponse && mentorResponse.map(resp => {
                         return <Card user={resp} />
                     })}
                 </div>
                 <div className={classes.cardsDiv}>
-                    <h1>Mentees</h1>
+                    <h1 style={{display:'block',fontSize:'3rem', textAlign: 'center', padding: "2rem" ,paddingTop:"5.2rem" ,color:'#277BC0'}}>Mentees</h1>
                     {menteeResponse && menteeResponse.map(resp => {
                         return <Card user={resp} />
                     })}

@@ -6,7 +6,7 @@
     position: absolute;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: white;
-    top:15rem;
+    top:18rem;
     left:50%;
     transform: translate(-50%, -50%);
     width: 70%;
@@ -18,16 +18,22 @@
 }
 .searchDiv{
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    margin:auto;
-    padding: 2rem;
-    margin-top: 2rem;
-    border-radius: 10px;
-    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    margin: 0rem;
 }
-.searchDiv input{
+.searchDiv div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #1da1f2; */
+    padding:1rem 4rem;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    /* margin:1rem */
+}
+/* .searchDiv input{
     width: 55%;
     border:0;
     padding: 2rem;
@@ -37,12 +43,12 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   font-family: 'DM Sans', sans-serif;
 
-}
-.searchDiv input :focus{
+} */
+/* .searchDiv input :focus{
     width: 60%;
     border:0;
     outline: none;
-}
+} */
 .cardsDiv{
     margin: 15rem 5rem;
     position: relative;
@@ -54,6 +60,7 @@
 .card{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     /* width: 30%; */
+    background-color: aliceblue;
     position: relative;
     text-align: center;
     padding-bottom: 2rem;
