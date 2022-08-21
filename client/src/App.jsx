@@ -12,6 +12,7 @@ import Room from "./pages/Room/Room";
 import StudyGroup from "./pages/Study Group/StudyGroup";
 import Navbar from "./pages/Navbar/Navbar";
 import Form from "./pages/Form/Form";
+import MenteeProfile from "./pages/MenteeProfile/MenteeProfile";
 // import { Model } from "./components/Models/Blender";
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/search" element={<Search />} />
         <Route exact path="/form" element={<Form />} />
+        <Route exact path="/profile/mentee" element={<MenteeProfile />} />
         <Route exact path="/studygroups" element={<StudyGroup />} />
         <Route exact path="/profile/:mail" element={<MentorProfile />} />
         <Route exact path="/room/:mail" element={<Room />} />

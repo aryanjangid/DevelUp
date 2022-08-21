@@ -1,0 +1,194 @@
+.MainDiv {
+}
+
+.profileMaindiv {
+  display: flex;
+  height: 50rem;
+  padding-top: 4.2rem;
+}
+
+.profileLeftdiv {
+  width: 40%;
+  background-color: aliceblue;
+  position: fixed;
+  top: 10;
+  height: 100%;
+  /* padding-top: 8rem; */
+}
+
+.profileLeftdiv canvas {
+  position: absolute;
+  padding-top: 7rem;
+}
+
+.profileRightdiv {
+  width: 60%;
+  position: absolute;
+  right: 0;
+}
+
+.basicDetails {
+  margin: 2rem;
+  background-color: white;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+}
+
+.wrapper .button {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 0 2rem;
+  margin-left: 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button:hover {
+  width: 200px;
+}
+
+.wrapper .button .icon {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button:nth-child(1):hover .icon {
+  background: #4267b2;
+}
+
+.wrapper .button:nth-child(2):hover .icon {
+  background: #1da1f2;
+}
+
+.wrapper .button:nth-child(3):hover .icon {
+  background: #e1306c;
+}
+
+.wrapper .button:nth-child(4):hover .icon {
+  background: #333;
+}
+
+.wrapper .button:nth-child(5):hover .icon {
+  background: #0077b5;
+}
+
+.wrapper .button .icon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button:hover .icon i {
+  color: #fff;
+}
+
+.wrapper .button span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button:nth-child(1) span {
+  color: #4267b2;
+}
+
+.wrapper .button:nth-child(2) span {
+  color: #1da1f2;
+}
+
+.wrapper .button:nth-child(3) span {
+  color: #e1306c;
+}
+
+.wrapper .button:nth-child(4) span {
+  color: #333;
+}
+
+.wrapper .button:nth-child(5) span {
+  color: #0077b5;
+}
+
+.editButton {
+  background-color: #4262ff;
+  width: fit-content;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 0.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.editContainer {
+  position: relative;
+}
+
+.roomDiv {
+  background-color: white;
+  border: 0;
+  padding: 1rem;
+  border-radius: 10px;
+  height: 2rem;
+  font-size: 17px;
+  border: none;
+  outline: none;
+  transition: .25s ease;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewRoomButton {
+  background-color: #1da1f2;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.textArea {
+  margin-top: 2rem;
+  width: 95%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  padding: 1rem;
+  border-color: grey;
+  height: 10rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+textArea ::selection {
+  border-color: grey;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+
+}
+.iconDiv{
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+}
+.iconDiv i{
+  padding: 1rem;
+  /* width: 1rem; */
+  border-radius: 50%;
+  color:white;
+  font-size: 1.5rem;
+}
