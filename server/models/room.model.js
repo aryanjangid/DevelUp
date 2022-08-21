@@ -4,6 +4,7 @@ const Room = new mongoose.Schema(
     {
         name: { type: String, required: true },
         room: { type: Stirng, required: true },
+        desp: { type: String }
     },
     { timestamps: true }
 )
