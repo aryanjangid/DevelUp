@@ -321,10 +321,10 @@ app.post('/room/:roomId', async (req, res) => {
         }
         const chatRoom = await ChatRoom.find({ roomId: roomId })
         const lol = await ChatRoom.updateOne(
-            { email: req.body.email },
+            { roomId: roomId },
             { $set: { messages: [...chatRoom[0].messages, message] } }
         )
-        return res.json({ status: 'ok', chatRoom })
+        return res.json({ status: 'ok', lol })
     } catch (error) {
         res.json({ status: 'error', error })
     }

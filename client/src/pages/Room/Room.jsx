@@ -37,7 +37,7 @@ export default function Room() {
     const Room = ({ room }) => {
         return (
             <div className={classes.team} onClick={() => updateChat(room)} style={{ cursor: 'pointer' }}>
-                <img className={classes.teamImage} src={profilePhotos[giveRandom()]} alt="team"></img>
+                <img className={classes.teamImage} src={profile1} alt="team"></img>
                 <div className={classes.teamName}><h3>{room.name}</h3></div>
             </div>
         )
@@ -50,13 +50,12 @@ export default function Room() {
 
     useEffect(() => {
         scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
-    }, [])
+    }, [chatRoom])
 
-    useEffect(() => {
-        socket.on("receive_message", (data) => {
-            setChatRoom([...chatRoom.messages, data.message]);
-        });
-    }, [chatRoom]);
+    socket.on("receive_message", (data) => {
+        setChatRoom([...chatRoom.messages, data.message]);
+        updateChat(data.data)
+    });
 
     const updateChat = (room) => {
         setChatRoom(room)
@@ -100,7 +99,7 @@ export default function Room() {
                 }}>
                     <div className={classes.teamDetailDiv}>
                         <div className={classes.teamDetails}>
-                            <img className={classes.teamImage} src={profilePhotos[giveRandom()]} alt="team"></img>
+                            <img className={classes.teamImage} src={profile1} alt="team"></img>
                             <div className={classes.teamName}><h3 style={{ color: 'white' }}>{rooms && chatRoom.name}</h3></div>
                         </div>
                         {meetOption === "create" ?
