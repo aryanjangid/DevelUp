@@ -33,6 +33,7 @@ export default function MentorProfile() {
         const req = await fetch(`http://localhost:4000/mentor/${mail}`)
         const mentor = await req.json()
         if (mentor['mentor'][0]) {
+            console.log(mentor['mentor'][0])
             setBio(mentor['mentor'][0].bio)
             setFacebook(mentor['mentor'][0].facebook)
             setInstagram(mentor['mentor'][0].instagram)
@@ -120,7 +121,7 @@ export default function MentorProfile() {
                         <pointLight intensity={10} position={[0, 0, 0]} color="#B20600" />
                         <OrbitControls enableDamping={true} enableZoom={true} />
                         <Suspense fallback={null}>
-                            <Blender action={action1} /> 
+                            <Blender action={action1} />
                         </Suspense>
                     </Canvas>
                 </div>
@@ -169,7 +170,7 @@ export default function MentorProfile() {
                                         <span>Linkedin</span>
                                     </div></a> : ''}
                             </div>
-                            <div onClick={() => setEditInfo(true)} className={classes.editButton}><h1>Edit Links</h1></div>
+                            <div onClick={() => setEditInfo(!editInfo)} className={classes.editButton}><h1>Edit Links</h1></div>
                         </div>
                         {editInfo ?
                             <div className={classes.editContainer}>
@@ -188,7 +189,7 @@ export default function MentorProfile() {
                     <div className={classes.basicDetails}>
                         <h1>Bio</h1>
                         <h3 style={{ margin: '2rem', marginLeft: '0' }}>{bio}</h3>
-                        <div onClick={() => setEditBio(true)} className={classes.editButton}><h1>Edit Bio</h1></div>
+                        <div onClick={() => setEditBio(!editBio)} className={classes.editButton}><h1>Edit Bio</h1></div>
                         {editBio ?
                             <div>
                                 <textarea className={classes.textArea}></textarea>

@@ -11,6 +11,10 @@ import profile8 from '../../Assets/profile8.png'
 import chatBackground from '../../Assets/chatsbackground.png'
 import { useParams } from 'react-router-dom'
 import { format } from 'timeago.js'
+import io from "socket.io-client";
+
+const socket = io.connect("http://localhost:5001");
+
 
 export default function Room() {
 
@@ -41,9 +45,18 @@ export default function Room() {
 
     useEffect(() => {
         fetch(`http://localhost:4000/mentor/${mail}`).then(data => data.json()).then(data => { setRooms(data['mentor'][0]['rooms']); setUser(data['mentor'][0]) })
+        chatRoom.roomId && socket.emit("join_room", chatRoom.roomId);
     }, [])
 
-    useEffect()
+    useEffect(() => {
+        scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }, [])
+
+    useEffect(() => {
+        socket.on("receive_message", (data) => {
+            setChatRoom([...chatRoom.messages, data.message]);
+        });
+    }, [chatRoom]);
 
     const updateChat = (room) => {
         setChatRoom(room)
@@ -65,16 +78,17 @@ export default function Room() {
             },
             body: JSON.stringify(message),
         }).then(() => setChatRoom({ ...chatRoom, messages: [...chatRoom.messages, message] }))
+        socket.emit("send_message", { message, data: chatRoom.roomId });
     }
 
     return (
         <div className={classes.outerDiv} style={{
             backgroundImage: `url(${chatBackground})`, height: 'fitContent'
         }}>
-            <div className={classes.searchDiv}>
+            {/* <div className={classes.searchDiv}>
                 <input className={classes.searchTeamInput} placeholder="Search...."></input>
                 <div className={classes.searchButton}>Search</div>
-            </div>
+            </div> */}
             <div className={classes.roomDashboard}>
                 <div className={classes.allTeams}>
                     {rooms && rooms.map((room, index) => {
@@ -104,13 +118,14 @@ export default function Room() {
                     <div className={classes.chatsDiv}>
                         {chatRoom.messages && chatRoom.messages.map((message, index) => {
                             return (
-                                <div key={index} ref={scrollRef}>
+                                <div key={index}>
                                     <span > {message.name}</span>
                                     <h1>{message.content}</h1>
                                     {/* <span > {format(message.createdAt)}</span> */}
                                 </div>
                             )
                         })}
+                        <div ref={scrollRef} />
                     </div>
                     <div className={classes.sendMessageDiv}>
                         <input className={classes.inputMessageBox} placeholder='Type a message' onChange={(e) => setNewMessage(e.target.value)} value={newMessage}></input>

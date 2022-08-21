@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@react-three/cannon": "^6.4.0",
     "@react-three/drei": "^9.23.1",
     "@react-three/fiber": "^8.4.1",
