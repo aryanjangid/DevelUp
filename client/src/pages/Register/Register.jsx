@@ -88,7 +88,7 @@ export default function Login() {
                         <div onClick={RegisterUser} style={{ marginTop: '3rem', display: 'flex', justifyContent: 'center' }} ><Button color='#277BC0' name="Register as Mentor" ></Button></div> : <div onClick={RegisterUser} style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}><Button color='#277BC0' name="Register as Mentee" to="/"></Button></div>
                 }
                 <h3 style={{ marginTop: "2rem" }}>Already a member? <span onClick={() => navigate('/login')} style={{ color: "#FFC23C", cursor: "pointer" }}>LogIn</span></h3>
-            </motion.div >
+            </div >
 
         </div >
     )
