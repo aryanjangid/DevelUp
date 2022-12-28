@@ -7,7 +7,7 @@
 <h1 align="center"> <font size="5"> <b> Develup </b></h1>
 <!-- PROJECT LOGO -->
 
-<h2><b>Exchanging ideas and guiding students down a route that is devoid of errors.</b></h2>
+<p><b>A platform that brings mentees and mentors together, connects juniors with seniors, and helps students find the right person with the right skill set in their college or university. With this app, you can find and contribute to ongoing projects, connect with like-minded individuals, and learn from the experiences of others. Whether you're looking for guidance and support, or you want to share your knowledge and skills with others, the Mentorship Connect App is the perfect resource.</b></p>
 
  ---
   </div>
